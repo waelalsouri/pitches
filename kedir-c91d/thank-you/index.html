@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your seat is almost saved · Dialed</title>
+<meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<link rel="stylesheet" href="../assets/funnel.css">
+<style>
+  .ty-head { text-align: center; padding-block: clamp(72px, 10vw, 112px) 40px; }
+  .ty-head h1 { white-space: nowrap; font-size: clamp(30px, 5.4vw, 58px); }
+  .ty-head .lead { margin-top: 16px; }
+  .prep { max-width: 860px; margin: 0 auto; text-align: center; }
+  .prep .eyebrow { margin-bottom: 10px; }
+  .prep p { color: var(--text-2); margin: 0 0 28px; }
+  .player { position: relative; aspect-ratio: 16/9; border-radius: 22px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 50px 100px -50px rgba(0,0,0,.9); }
+  .player img { width: 100%; height: 100%; object-fit: cover; }
+  .player::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 120% at 50% 45%, rgba(12,12,11,.05), rgba(12,12,11,.55)); }
+  .player .vplay { width: 84px; height: 84px; z-index: 2; }
+  .player .vplay svg { width: 30px; height: 30px; }
+  .steps { display: grid; gap: 28px; max-width: 860px; margin: 0 auto; }
+  .step { text-align: center; background: linear-gradient(180deg, var(--surface-2), var(--surface)); border: 1px solid var(--line); border-radius: 26px; padding: 44px 28px; }
+  .badge { width: 44px; height: 44px; margin: 0 auto 18px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); font-family: var(--display); font-weight: 750; font-size: 18px; }
+  .step h2 { font-size: clamp(24px, 3vw, 32px); }
+  .step > p { color: var(--text-2); margin: 12px auto 0; max-width: 52ch; }
+  .cal-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .cal-btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 20px; border-radius: 14px; background: #f7f7f5; color: #1b1b1a; font-weight: 600; font-size: 15px; border: 1px solid rgba(0,0,0,.06); transition: transform .25s var(--ease); }
+  .cal-btn:hover { transform: translateY(-2px); }
+  .cal-btn svg { width: 22px; height: 22px; }
+  /* Gmail mockup */
+  .gmail { margin: 30px auto 0; max-width: 720px; text-align: left; background: #fff; color: #1f1f1f; border-radius: 16px; overflow: hidden; font-family: "Google Sans", Roboto, Arial, sans-serif; box-shadow: 0 30px 70px -40px rgba(0,0,0,.9); }
+  .g-top { display: flex; align-items: center; gap: 14px; padding: 10px 16px; background: #f6f8fc; }
+  .g-logo { display: flex; align-items: center; gap: 8px; font-size: 20px; color: #5f6368; }
+  .g-logo svg { width: 30px; height: 22px; }
+  .g-search { flex: 1; min-width: 0; background: #e9eef6; border-radius: 999px; padding: 9px 16px; font-size: 14px; color: #5f6368; }
+  .g-tabs { display: flex; gap: 0; border-bottom: 1px solid #e3e3e3; font-size: 13.5px; }
+  .g-tabs span { padding: 12px 18px; color: #5f6368; }
+  .g-tabs .on { color: #0b57d0; box-shadow: inset 0 -3px 0 #0b57d0; font-weight: 600; }
+  .g-row { display: grid; grid-template-columns: 36px 140px 1fr auto; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #f1f3f4; font-size: 14px; }
+  .g-row .av { width: 32px; height: 32px; border-radius: 50%; overflow: hidden; background: #dadce0; }
+  .g-row .av img { width: 100%; height: 100%; object-fit: cover; }
+  .g-row .from { font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .g-row .subj { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .g-row .subj b { font-weight: 700; }
+  .g-row .subj span { color: #5f6368; }
+  .g-row .time { font-size: 12.5px; font-weight: 700; color: #1f1f1f; }
+  .g-row.hot { background: #fff7d6; box-shadow: inset 4px 0 0 #cef240; }
+  .g-row.blur { filter: blur(3.2px); opacity: .75; }
+  /* WhatsApp */
+  .wa-btn { display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; padding: 17px 32px; border-radius: 999px; background: #25D366; color: #fff; font-weight: 700; font-size: 17px; box-shadow: 0 16px 40px -16px rgba(37, 211, 102, .6); transition: transform .25s var(--ease); }
+  .wa-btn:hover { transform: translateY(-2px); }
+  .wa-btn svg { width: 24px; height: 24px; }
+  .wa-note { display: block; margin-top: 16px; font-size: 14px; color: var(--text-2); }
+  @media (max-width: 640px) {
+    .ty-head h1 { white-space: normal; }
+    .g-row { grid-template-columns: 32px 1fr auto; }
+    .g-row .subj { grid-column: 2 / 4; grid-row: 2; }
+    .g-tabs span:nth-child(n+3) { display: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <section class="ty-head">
+    <div class="wrap">
+      <h1 class="reveal">Your seat is almost saved</h1>
+      <p class="lead reveal" style="--i:1">Complete the following steps below.</p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-bottom:72px">
+    <div class="prep reveal">
+      <span class="eyebrow">Watch this first</span>
+      <p>Two minutes from Kedir on how to get the most out of Thursday.</p>
+      <!-- {{SWAP: prep video}} · thumbnail is a clean frame from Kedir's channel -->
+      <div class="player"><img src="../assets/img/prep-thumb.jpg" alt="Kedir at his desk"><span class="vplay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-bottom:96px">
+    <div class="steps">
+      <article class="step reveal">
+        <div class="badge">1</div>
+        <h2>Add the event to your calendar</h2>
+        <p>Thursday at 8pm ET, so it's blocked out.</p>
+        <div class="cal-row">
+          <a class="cal-btn" href="#"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="#fff" stroke="#4285F4" stroke-width="2"/><path d="M3 8h18" stroke="#4285F4" stroke-width="2"/><path d="M17 21h1a3 3 0 0 0 3-3v-1z" fill="#EA4335"/><path d="M3 17v1a3 3 0 0 0 3 3h1z" fill="#34A853"/><text x="12" y="17.5" text-anchor="middle" font-family="Arial" font-weight="700" font-size="8" fill="#4285F4">31</text></svg>Google Calendar</a>
+          <a class="cal-btn" href="#"><svg viewBox="0 0 24 24"><rect x="9" y="4" width="13" height="16" rx="2" fill="#28A8EA"/><rect x="2" y="6" width="12" height="12" rx="2" fill="#0A64C8"/><ellipse cx="8" cy="12" rx="3" ry="3.4" fill="none" stroke="#fff" stroke-width="1.8"/></svg>Outlook</a>
+          <a class="cal-btn" href="#"><svg viewBox="0 0 24 24" fill="#1b1b1a"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.9-3-.8-1.6 0-3 .9-3.8 2.3-1.6 2.8-.4 6.9 1.2 9.2.8 1.1 1.7 2.3 2.9 2.3 1.2-.1 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM14.1 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z"/></svg>Apple Calendar</a>
+        </div>
+      </article>
+
+      <article class="step reveal">
+        <div class="badge">2</div>
+        <h2>Reply YES to the email we just sent you</h2>
+        <div class="gmail" aria-label="Your inbox">
+          <div class="g-top">
+            <span class="g-logo"><svg viewBox="0 0 30 22"><path d="M2 4l13 9 13-9v15a2 2 0 0 1-2 2h-3V9l-8 6-8-6v12H4a2 2 0 0 1-2-2z" fill="#4285F4"/><path d="M2 4l13 9 13-9" fill="none" stroke="#EA4335" stroke-width="3"/><path d="M2 4v4l5 4" fill="#C5221F"/><path d="M28 4v4l-5 4" fill="#FBBC04"/></svg>Gmail</span>
+            <span class="g-search">Search mail</span>
+          </div>
+          <div class="g-tabs"><span class="on">Primary</span><span>Promotions</span><span>Social</span></div>
+          <div class="g-row hot">
+            <span class="av"><img src="../assets/img/kedir-avatar.jpg" alt=""></span>
+            <span class="from">Kedir · Dialed</span>
+            <span class="subj"><b>Action required: Reply yes to this email to confirm your spot</b> <span>· Hey, quick one before Thursday…</span></span>
+            <span class="time">now</span>
+          </div>
+          <div class="g-row blur"><span class="av"></span><span class="from">Spotify</span><span class="subj"><b>Your weekly mix is ready</b> <span>· New songs picked for you</span></span><span class="time">9:12</span></div>
+          <div class="g-row blur"><span class="av"></span><span class="from">Uber Eats</span><span class="subj"><b>Your order is on the way</b> <span>· Track it live</span></span><span class="time">8:40</span></div>
+          <div class="g-row blur"><span class="av"></span><span class="from">Nike</span><span class="subj"><b>Members get first access</b> <span>· Starting today</span></span><span class="time">Yesterday</span></div>
+        </div>
+      </article>
+
+      <article class="step reveal">
+        <div class="badge">3</div>
+        <h2>Join the WhatsApp group:</h2>
+        <p>The live link, reminders and every update go here first.</p>
+        <a class="wa-btn" href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.2-.7-2.7-1.1-4.4-3.8-4.5-4-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.2.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>Join the WhatsApp group</a>
+        <span class="wa-note">Your free 3-Signal Product Sheet is sent in the group, not by email.</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:24px">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">While you wait</span><h2>Hear from our students</h2></div>
+      <div class="vgrid">
+        <article class="vcard reveal">
+          <button class="vframe" type="button" data-yt="HW0CS0t31L4" aria-label="Play: From selling candy to $600k online"><img src="../assets/img/yt-HW0CS0t31L4.jpg" alt="" loading="lazy"><span class="vplay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button>
+          <div class="vname">From selling candy to $600k online</div>
+          <p class="vdesc">A Dialed member on going from $0 to $20k days.</p>
+        </article>
+        <article class="vcard reveal" style="--i:1">
+          <button class="vframe" type="button" data-yt="xGzqAxIO7xU" aria-label="Play: 7-figure ecom operators"><img src="../assets/img/yt-xGzqAxIO7xU.jpg" alt="" loading="lazy"><span class="vplay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button>
+          <div class="vname">7-figure operators, on what it takes</div>
+          <p class="vdesc">The mindset and the mistakes, from people running brands right now.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="foot"><span class="brand"><img src="../assets/img/dialed-mark.svg" alt="" width="22" height="22">Dialed</span></footer>
+<script src="../assets/funnel.js"></script>
+</body>
+</html>

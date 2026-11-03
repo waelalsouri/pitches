@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>MF · Carousel</title><meta name="robots" content="noindex" />  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<link rel="stylesheet" href="../assets/phone.css" /></head>
+<body>
+<div class="phone"><span class="island"></span><div class="screen">
+  <div class="status"><span>9:41</span><span>5G ▮</span></div>
+  <div class="igbar"><b>Instagram</b><span>♡ ✉</span></div>
+  <div class="post__head"><img src="../assets/img/vsl-thumb.jpg" alt="" /><span>shahibhsn<small>Sponsored</small></span></div>
+  <div class="media">
+    <span class="count" id="count">1/7</span>
+    <div class="track" id="track">
+      <div class="slide"><img src="../assets/img/before-after.jpg" alt="" style="object-position:left center;width:200%;max-width:none" /><span class="pill">Before</span><h2>205kg. Restarting every Monday.</h2><p>Swipe to see what changed →</p></div>
+      <div class="slide"><img src="../assets/img/umrah.jpg" alt="" /><span class="pill">The turning point</span><h2>I couldn't finish my Umrah without stopping.</h2><p>"Allah, help me change."</p></div>
+      <div class="slide slide--plain"><span class="pill" style="align-self:center">What I got wrong</span><h2>It was never the diet. It was my nafs.</h2><p>Every plan was written for a man with no job, no family and no deen.</p></div>
+      <div class="slide slide--plain"><span class="pill" style="align-self:center">The 3 pillars</span><h2 style="font-size:22px">1. Nafs before food<br />2. The 9 to 5 eating plan<br />3. Energy past 3pm</h2></div>
+      <div class="slide" style="background:#111"><img src="../assets/img/proof/proof-10.jpg" alt="" style="object-fit:contain;object-position:top" /><span class="pill">A brother on a 9 to 5</span><h2>167kg to 158kg on lunch walks.</h2></div>
+      <div class="slide"><img src="../assets/img/shahib-thobe.jpg" alt="" style="object-position:center" /><span class="pill">After</span><h2>102kg. Same food. Same family.</h2><p>Alhamdulillah.</p></div>
+      <div class="slide slide--green"><h2>Brother, 110kg+ and working a 9 to 5?</h2><p>Watch the 14-minute video and apply. 15 places per intake.</p></div>
+    </div>
+  </div>
+  <div class="cta"><span>Watch the video</span><span>›</span></div>
+  <div class="actions"><span>♡</span><span>💬</span><span>➤</span><div class="dots" id="dots"></div></div>
+  <div class="caption"><b>shahibhsn</b> 205kg to 102kg. Swipe through what actually worked, and what didn't.<small>View all 96 comments</small></div>
+</div></div>
+<script>
+(function(){var t=document.getElementById("track"),c=document.getElementById("count"),d=document.getElementById("dots"),n=t.children.length;
+for(var i=0;i<n;i++){var e=document.createElement("i");if(!i)e.className="on";d.appendChild(e);}
+t.addEventListener("scroll",function(){var k=Math.round(t.scrollLeft/t.clientWidth);c.textContent=(k+1)+"/"+n;[].forEach.call(d.children,function(x,j){x.className=j===k?"on":"";});},{passive:true});})();
+</script>
+</body></html>

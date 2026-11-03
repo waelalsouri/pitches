@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Live Training · Muslim Sales Accelerator</title>
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..800;1,9..144,500..700&family=Inter:wght@400..800&display=swap">
+<style>
+  /* engine mechanics (from deck-scaffold.html) */
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{overflow:hidden;background:#060504;color:#f6efe2;font-family:Inter,system-ui,sans-serif}
+  #stage{position:fixed;inset:0}
+  .slide{position:absolute;inset:0;overflow:hidden}
+  #bar{position:fixed;left:0;top:0;height:3px;background:#d9a441;width:0;transition:width .3s ease;z-index:5}
+  #counter{position:fixed;right:14px;bottom:12px;z-index:5;font:12px/1 Inter,system-ui;opacity:.5;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+  @media (prefers-reduced-motion:reduce){#bar{transition:none}}
+
+  /* ===== system B slide design ===== */
+  :root{--gold:#d9a441;--gold2:#f1c86d;--ink:#1a1205;--t2:#bfb29c;--t3:#8d826f;--line:rgba(232,196,120,.18);--sf:#17120c}
+  .f{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(100vw,177.78vh);height:min(56.25vw,100vh);container-type:size;overflow:hidden;
+    background:radial-gradient(80% 60% at 50% -10%,rgba(217,164,65,.16),transparent 60%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23d9a441' stroke-opacity='.06'%3E%3Crect x='30' y='30' width='36' height='36'/%3E%3Crect x='30' y='30' width='36' height='36' transform='rotate(45 48 48)'/%3E%3Ccircle cx='48' cy='48' r='8'/%3E%3C/g%3E%3C/svg%3E") center/6cqw,#0b0907}
+  .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6cqh 7cqw}
+  h1,h2{font-family:Fraunces,Georgia,serif;font-weight:700;letter-spacing:-.015em;margin:0;line-height:1.08}
+  h1{font-size:5.6cqw} h2{font-size:4cqw}
+  em{font-style:italic;color:var(--gold2);font-weight:600}
+  .s{font-size:2cqw;color:var(--t2);margin-top:2.4cqh;max-width:60cqw;line-height:1.45}
+  .k{font-size:1.15cqw;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:2.6cqh}
+  .a>*{opacity:0;animation:up .8s cubic-bezier(.16,1,.3,1) forwards}
+  .a>*:nth-child(2){animation-delay:.15s}.a>*:nth-child(3){animation-delay:.3s}.a>*:nth-child(4){animation-delay:.45s}.a>*:nth-child(5){animation-delay:.6s}.a>*:nth-child(6){animation-delay:.75s}
+  @keyframes up{from{opacity:0;transform:translateY(3cqh)}to{opacity:1;transform:none}}
+  html.reduced .a>*{animation:none;opacity:1}
+  /* photo slides */
+  .ph{position:absolute;inset:0}.ph img{width:100%;height:100%;object-fit:cover;animation:kb 9s ease-out forwards}
+  @keyframes kb{from{transform:scale(1.06)}to{transform:scale(1)}}
+  .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,9,7,.1) 35%,rgba(11,9,7,.92))}
+  .cap{position:absolute;left:7cqw;right:7cqw;bottom:8cqh;text-align:center}
+  .cap h2{font-size:3.6cqw}
+  .split{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+  .split .im{position:relative;overflow:hidden}.split .im img{width:100%;height:100%;object-fit:cover}
+  .split .tx{display:flex;flex-direction:column;justify-content:center;padding:0 6cqw;text-align:left}
+  .split .tx h2{font-size:3.6cqw}
+  .swap{width:100%;height:100%;display:grid;place-items:center;background:repeating-linear-gradient(135deg,#17120c 0 2cqw,#1c160e 2cqw 4cqw);color:var(--gold);font-size:1.3cqw;letter-spacing:.12em;text-transform:uppercase;font-weight:700;text-align:center;padding:4cqw}
+  /* dividers */
+  .dv .num{font-family:Fraunces;font-style:italic;font-size:14cqw;color:transparent;-webkit-text-stroke:.12cqw var(--gold);line-height:1}
+  .dv h1{font-size:4.4cqw;max-width:70cqw;margin-top:2cqh}
+  /* cards / nodes */
+  .row{display:flex;gap:2cqw;justify-content:center;align-items:stretch;margin-top:5cqh;width:100%}
+  .nd{flex:1;max-width:24cqw;padding:3.4cqh 1.6cqw;border-radius:1.2cqw;border:1px solid var(--line);background:linear-gradient(180deg,#1e1810,#15110c);opacity:0;animation:up .7s cubic-bezier(.16,1,.3,1) forwards}
+  .nd b{display:block;font-family:Fraunces;font-size:3cqw;color:var(--gold2)}
+  .nd span{display:block;font-size:1.5cqw;color:var(--t2);margin-top:1cqh;line-height:1.35}
+  .nd.on{border-color:var(--gold);box-shadow:0 0 0 1px rgba(217,164,65,.3),0 2cqh 5cqh -2cqh rgba(217,164,65,.4)}
+  .arrow{align-self:center;color:var(--gold);font-size:2.6cqw;opacity:0;animation:up .5s forwards}
+  /* quiz */
+  .qz{display:flex;gap:3cqw;margin-top:6cqh}
+  .qz div{width:20cqw;padding:3cqh 0;border-radius:1.2cqw;border:1px solid var(--line);font-family:Fraunces;font-size:3cqw;background:var(--sf)}
+  .qz .ok{border-color:var(--gold);color:var(--gold2)}
+  .a>.ok{animation:up .8s cubic-bezier(.16,1,.3,1) forwards,pulse 1.6s 1s ease-in-out 2}
+  .a>.ok:nth-child(2){animation-delay:.15s,1s}
+  @keyframes pulse{50%{box-shadow:0 0 0 1.2cqw rgba(217,164,65,.18)}}
+  /* myth/truth */
+  .mt{display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw;width:100%;margin-top:4cqh}
+  .mt div{padding:5cqh 3cqw;border-radius:1.4cqw;text-align:left;opacity:0;animation:up .7s forwards}
+  .mt .m{background:#151210;border:1px solid rgba(255,255,255,.08);color:var(--t3)}
+  .mt .m p{text-decoration:line-through;text-decoration-color:rgba(224,103,90,.7)}
+  .mt .t{background:linear-gradient(180deg,#221a0f,#16110b);border:1px solid var(--gold);animation-delay:.6s}
+  .mt b{font-size:1.1cqw;letter-spacing:.3em;text-transform:uppercase;display:block;margin-bottom:2cqh}
+  .mt .m b{color:#e0675a}.mt .t b{color:var(--gold)}
+  .mt p{font-family:Fraunces;font-size:2.6cqw;margin:0;line-height:1.25;color:inherit}
+  .mt .t p{color:#f6efe2}
+  /* chat engagement */
+  .chat{width:44cqw;margin-top:4cqh;border-radius:1.4cqw;background:#120e0a;border:1px solid var(--line);padding:2cqh 1.6cqw;text-align:left}
+  .msg{display:flex;gap:1cqw;align-items:center;padding:1cqh 0;opacity:0;animation:up .5s forwards;font-size:1.5cqw;color:var(--t2)}
+  .msg i{width:2.6cqw;height:2.6cqw;border-radius:50%;flex:none;background:linear-gradient(135deg,#3a2c17,#6b5020)}
+  .msg b{color:#f6efe2;margin-right:.6cqw}
+  /* big number */
+  .big{font-family:Fraunces;font-weight:800;font-size:15cqw;line-height:1;color:var(--gold2)}
+  /* proof */
+  .proofs{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4cqw;width:100%;margin-top:4cqh}
+  .proofs div{aspect-ratio:4/3;border-radius:1cqw;overflow:hidden;background:#0d1013;border:1px solid var(--line);opacity:0;animation:up .6s forwards}
+  .proofs img{width:100%;height:100%;object-fit:contain}
+  .shot1{max-height:60cqh;max-width:62cqw;border-radius:1.2cqw;border:1px solid var(--line);box-shadow:0 4cqh 8cqh -4cqh #000;margin-top:3cqh;object-fit:contain;background:#0d1013}
+  /* flow diagram */
+  .flow{display:flex;align-items:center;gap:1.4cqw;margin-top:6cqh;max-width:88cqw}
+  .fn{flex:0 1 20cqw;min-width:0;padding:4cqh 1.4cqw;border-radius:1.4cqw;border:1px solid var(--line);background:var(--sf);opacity:0;animation:up .7s forwards}
+  .fn .ic{font-size:3.4cqw}
+  .fn b{display:block;font-family:Fraunces;font-size:2.2cqw;margin-top:1cqh}
+  .fn span{display:block;font-size:1.3cqw;color:var(--t2);margin-top:.8cqh}
+  .fl{flex:0 0 4cqw;height:2px;background:linear-gradient(90deg,var(--gold),transparent);position:relative;transform-origin:left;transform:scaleX(0);animation:grow .6s forwards}
+  @keyframes grow{to{transform:scaleX(1)}}
+  .fn.me{border-color:var(--gold);background:linear-gradient(180deg,#2a1f0f,#17120c)}
+  /* schedule */
+  .day{width:80cqw;margin-top:6cqh;position:relative}
+  .track{height:7cqh;border-radius:1cqw;background:#15110c;border:1px solid var(--line);position:relative;overflow:hidden}
+  .blk{position:absolute;top:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:1.25cqw;font-weight:600;color:var(--t2);border-right:1px solid rgba(0,0,0,.4);transform-origin:left;transform:scaleX(0);animation:grow .6s forwards}
+  .blk.g{background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--ink);font-weight:800}
+  .blk.p{background:#2a2219}
+  .ticks{display:flex;justify-content:space-between;font-size:1.1cqw;color:var(--t3);margin-top:1.2cqh}
+  /* stack */
+  .stk{width:62cqw;margin-top:4cqh;display:grid;gap:1.4cqh;text-align:left}
+  .si{display:flex;align-items:center;gap:1.6cqw;padding:1.8cqh 2cqw;border-radius:1cqw;border:1px solid var(--line);background:var(--sf);font-size:1.7cqw}
+  .si .n{font-family:Fraunces;font-style:italic;color:var(--gold2);width:2.4cqw}
+  .si.new{animation:up .7s cubic-bezier(.16,1,.3,1) both;border-color:var(--gold)}
+  .si.uf{border-color:var(--gold);background:linear-gradient(90deg,#2a1f0f,#17120c)}
+  .tag{margin-left:auto;font-size:1cqw;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:.6cqh 1cqw;border-radius:99px}
+  .cover{height:62cqh;transform:rotate(-4deg);filter:drop-shadow(0 3cqh 4cqh rgba(0,0,0,.6));animation:straight 1.2s .3s cubic-bezier(.16,1,.3,1) forwards}
+  @keyframes straight{to{transform:rotate(0)}}
+  .three{display:flex;gap:2cqw;margin-top:5cqh}
+  .three .nd{max-width:26cqw;text-align:center}
+  .three .nd small{display:block;font-size:1cqw;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:1cqh}
+  .three .nd span{font-size:1.45cqw;color:#f6efe2;font-family:Fraunces}
+</style>
+</head>
+<body>
+<div id="stage" aria-live="polite"></div>
+<div id="bar"></div>
+<div id="counter"></div>
+
+<script>
+/* ===================== THE ENGINE (verbatim from deck-scaffold.html) ===================== */
+const DECK = (function(){
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) document.documentElement.classList.add('reduced');
+  const stage = document.getElementById('stage');
+  const bar = document.getElementById('bar');
+  const counter = document.getElementById('counter');
+  let current = 0, SLIDES = [];
+  function show(i){
+    if (!SLIDES.length) return;
+    current = Math.max(0, Math.min(SLIDES.length - 1, i));
+    const s = SLIDES[current];
+    const el = document.createElement('section');
+    el.className = 'slide';
+    el.innerHTML = (typeof s === 'string') ? s : (s.html || '');
+    stage.replaceChildren(el);
+    if (s && typeof s.onMount === 'function') s.onMount(el, { reduced });
+    bar.style.width = (current / Math.max(1, SLIDES.length - 1) * 100) + '%';
+    counter.textContent = (current + 1) + ' / ' + SLIDES.length;
+  }
+  const next = () => show(current + 1);
+  const prev = () => show(current - 1);
+  addEventListener('keydown', e => {
+    if (['ArrowRight',' ','Spacebar','PageDown'].includes(e.key)){ e.preventDefault(); next(); }
+    else if (['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+    else if (e.key === 'Home'){ show(0); }
+    else if (e.key === 'End'){ show(SLIDES.length - 1); }
+  });
+  addEventListener('click', e => { (e.clientX < innerWidth * 0.33 ? prev : next)(); });
+  function load(slides){ SLIDES = slides || []; show(0); }
+  return { load, show, next, prev, reduced };
+})();
+
+/* ===================== SLIDE KIT (system B) ===================== */
+const IMG = '../assets/img/';
+const F = (inner) => `<div class="f">${inner}</div>`;
+const T = (title, sub='', kick='') => F(`<div class="c a">${kick?`<div class="k">${kick}</div>`:''}<h1>${title}</h1>${sub?`<p class="s">${sub}</p>`:''}</div>`);
+const P = (img, line, sub='') => F(`<div class="ph"><img src="${IMG+img}" alt=""></div><div class="cap a"><h2>${line}</h2>${sub?`<p class="s" style="margin:1.6cqh auto 0">${sub}</p>`:''}</div>`);
+const SP = (img, line, sub='', kick='') => F(`<div class="split"><div class="im">${img.startsWith('SWAP')?`<div class="swap">{{${img}}}</div>`:`<img src="${IMG+img}" alt="">`}</div><div class="tx a">${kick?`<div class="k">${kick}</div>`:''}<h2>${line}</h2>${sub?`<p class="s" style="margin-left:0">${sub}</p>`:''}</div></div>`);
+const DV = (num, kick, title) => F(`<div class="c a dv"><div class="k">${kick}</div><div class="num">${num}</div><h1>${title}</h1></div>`);
+const MT = (myth, truth, kick) => F(`<div class="c"><div class="k">${kick}</div><div class="mt"><div class="m"><b>Myth</b><p>${myth}</p></div><div class="t"><b>Truth</b><p>${truth}</p></div></div></div>`);
+const NODES = (title, items, kick='', on=-1) => F(`<div class="c"><div class="a">${kick?`<div class="k">${kick}</div>`:''}<h2>${title}</h2></div><div class="row">${items.map((it,i)=>`<div class="nd${i===on?' on':''}" style="animation-delay:${.3+i*.18}s"><b>${it[0]}</b><span>${it[1]}</span></div>`).join('')}</div></div>`);
+const CHAT = (ask, msgs) => F(`<div class="c"><div class="a"><div class="k">In the chat</div><h2>${ask}</h2></div><div class="chat">${msgs.map((m,i)=>`<div class="msg" style="animation-delay:${.5+i*.35}s"><i></i><span><b>${m[0]}</b>${m[1]}</span></div>`).join('')}</div></div>`);
+const PROOFS = (title, ids) => F(`<div class="c"><div class="a"><h2>${title}</h2></div><div class="proofs">${ids.map((n,i)=>`<div style="animation-delay:${.2+i*.12}s"><img src="${IMG}proof-${n}.jpg" alt=""></div>`).join('')}</div></div>`);
+const SHOT = (img, line, kick='') => F(`<div class="c a">${kick?`<div class="k">${kick}</div>`:''}<h2>${line}</h2><img class="shot1" src="${IMG+img}" alt=""></div>`);
+const COUNT = (to, prefix, line, kick='', suffix='') => ({ html: F(`<div class="c a">${kick?`<div class="k">${kick}</div>`:''}<div class="big"><span data-n>${prefix}0${suffix}</span></div><p class="s">${line}</p></div>`),
+  onMount(el,{reduced}){ const n=el.querySelector('[data-n]'); const fmt=v=>prefix+Math.round(v).toLocaleString()+suffix; if(reduced){n.textContent=fmt(to);return;} const t0=performance.now(),d=1400;(function tk(t){const p=Math.min(1,(t-t0)/d);n.textContent=fmt(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tk);})(t0);} });
+const PILLARS = [
+  ['The Halal Offer Filter','How to find vetted halal offers hiring closers and land 3 interviews in 14 days'],
+  ['The Amanah Close','The 5-step sales call that closes without pressure, lies or haram tactics'],
+  ['The 2-Hour Block','How to take your first paid calls alongside uni or a 9-5']];
+const THREE = (title, on=-1, kick='') => F(`<div class="c"><div class="a">${kick?`<div class="k">${kick}</div>`:''}<h2>${title}</h2></div><div class="three">${PILLARS.map((p,i)=>`<div class="nd${i===on?' on':''}" style="animation-delay:${.3+i*.2}s"><small>0${i+1} · ${p[0]}</small><span>${p[1]}</span></div>`).join('')}</div></div>`);
+const STACK_ITEMS = [['The Halal Closer curriculum','12 weeks, one clear action each week'],['A weekly live call with me','90 minutes, every week'],['Your own 1:1 coach','role-plays and real call reviews'],['The Placement Desk','warm intros to vetted halal offers',true],['Noble Circle','the brothers on the same path']];
+const STACK = (n, kick='The Noble Circle Accelerator') => F(`<div class="c"><div class="a"><div class="k">${kick}</div><h2>${n<STACK_ITEMS.length?'Here\'s what you get':'Everything, together'}</h2></div><div class="stk">${STACK_ITEMS.slice(0,n).map((s,i)=>`<div class="si${s[2]?' uf':''}${i===n-1&&n<STACK_ITEMS.length?' new':''}"><span class="n">${i+1}</span><span><b>${s[0]}</b> · ${s[1]}</span>${s[2]?'<span class="tag">Unfair advantage</span>':''}</div>`).join('')}</div></div>`);
+const FLOW = (title, nodes, kick='') => F(`<div class="c"><div class="a">${kick?`<div class="k">${kick}</div>`:''}<h2>${title}</h2></div><div class="flow">${nodes.map((n,i)=>`${i?`<div class="fl" style="animation-delay:${.2+i*.45}s"></div>`:''}<div class="fn${n[3]?' me':''}" style="animation-delay:${i*.45}s"><div class="ic">${n[0]}</div><b>${n[1]}</b><span>${n[2]}</span></div>`).join('')}</div></div>`);
+const DAY = (title, blocks, kick='', ticks=true) => F(`<div class="c"><div class="a">${kick?`<div class="k">${kick}</div>`:''}<h2>${title}</h2></div><div class="day"><div class="track">${blocks.map((b,i)=>`<div class="blk ${b[3]||'p'}" style="left:${b[0]}%;width:${b[1]}%;animation-delay:${.3+i*.2}s">${b[2]}</div>`).join('')}</div>${ticks?'<div class="ticks"><span>Fajr</span><span>Uni / work</span><span>Asr</span><span>Maghrib</span><span>Isha</span><span>Sleep</span></div>':''}</div></div>`);
+const QUIZ = (q, reveal) => F(`<div class="c"><div class="a"><div class="k">Quick quiz</div><h2>${q}</h2></div><div class="qz a"><div class="${reveal==='true'?'ok':''}">True</div><div class="${reveal==='false'?'ok':''}">False</div></div></div>`);
+const COVER = (img, line, sub) => F(`<div class="split"><div class="im" style="display:grid;place-items:center"><img class="cover" src="${IMG+img}" alt="" style="width:auto;height:62cqh;object-fit:contain"></div><div class="tx a"><div class="k">Free</div><h2>${line}</h2><p class="s" style="margin-left:0">${sub}</p></div></div>`);
+
+/* ===================== THE DECK · Fladlien 14 steps ===================== */
+DECK.load([
+  /* 1 · HOOK */
+  SP('host.jpg','How Regular Muslims Are Making <em>$2k to $15k a Month</em> Remotely','Closing sales calls for halal businesses.','Free live training'),
+  QUIZ('True or false: to earn halal money online, you need to start your own business.',''),
+  QUIZ('True or false: to earn halal money online, you need to start your own business.','false'),
+  T('Most of my students have <em>never owned</em> a business.','And they’re getting paid every week.'),
+  P('wide-smile.jpg','By the end of today you’ll know how to land your first closing role.','In about two hours a day.'),
+  CHAT('Where are you watching from?',[['Yusuf','Sydney'],['Hamza','Birmingham'],['Ali','Toronto'],['Omar','Melbourne']]),
+
+  /* 2 · PAIN */
+  NODES('If you’re here, one of these is probably you',[['Uni','a degree on a riba loan, three more years to go'],['9 to 5','a shift that pays the bills and nothing else'],['Burnt','tried dropshipping or trading and lost money']],'Be honest'),
+  T('You’re told to get a degree, then a job, then wait.','And the degree is paid for with interest.'),
+  COUNT(45000,'£','The average student loan balance in England. With interest on top.','The degree',''),
+  T('Or you’re on a shift that leaves nothing for your <em>family</em>, your <em>deen</em> or your future.'),
+  T('Then every "make money online" guy wants you to buy his course first.'),
+  T('It was never your work ethic.','Nobody showed you a halal way to earn that doesn’t need money to start.'),
+  CHAT('Type 1 if that’s been you.',[['Bilal','1'],['Zayd','1 bro'],['Imran','1, literally me'],['Musa','1']]),
+
+  /* 3 · TEASE */
+  THREE('You’ll leave today with three things',-1,'Today'),
+  COVER('gift-2.png','Stay to the end and The First-Call Card is yours, free.','The whole call on one page, plus 10 honest answers to what people say.'),
+
+  /* 4 · EXCITE */
+  T('Picture a Tuesday, three months from now.'),
+  DAY('You pray Asr, open your laptop and take two calls',[[0,14,'Fajr · Quran','p'],[14,38,'Uni or work','p'],[52,12,'Prep','p'],[66,12,'2 calls','g'],[78,22,'Family · rest','p']],'Tuesday'),
+  COUNT(300,'$','One of them says yes. That’s your commission before Maghrib.','10% of a $3,000 sale'),
+  T('And when your mum asks what you do, you tell her the truth.','And she’s proud of it.'),
+
+  /* 5 · SOCIAL PROOF (origin story, beat by beat) */
+  SP('host.jpg','I’m Zain. I’m 22 and I teach Muslims to close.','','Who am I'),
+  SP('SWAP: photo of Zain at uni, before dropping out','I was at uni, doing what I was told, with no idea where it led.'),
+  SP('SWAP: candid photo from the dropout period','So I dropped out. No plan, no money, and a lot of worried family.'),
+  SP('swarm-2.jpg','Then someone showed me what a closer does.','A business has the leads. You take the calls. You get a percentage.'),
+  SP('swarm-5.jpg','My first months were rough. I didn’t know what I was doing on calls.','[CONFIRM: first-month detail]'),
+  COUNT(7000,'$','I closed in a single week.','At 22'),
+  COUNT(20000,'$','My best month closing. Alhamdulillah.','[CONFIRM]'),
+  SP('night.jpg','Then brothers kept asking me how. So I started teaching it.'),
+  SP('call-ammar.jpg','Ammar made $1.5k in his first 4 days.','','Students'),
+  PROOFS('Straight from the group chat',[1,2,3,4,5,6,7,8]),
+  NODES('A few of the brothers',[['Kaan','first money in 2 weeks'],['Mahdi','first sales in under 3 weeks'],['Ismail','$3k in 45 minutes']]),
+
+  /* 6 · PARADIGM */
+  T('Everything today hangs on one idea.'),
+  T('You don’t need to start a halal business.','The fastest halal income is <em>selling someone else’s.</em>','The big idea'),
+  FLOW('How it works',[['◆','The business','has the offer and the leads'],['☎','You','take the calls','me'],['✦','Commission','10 to 20% of every sale']]),
+  T('Coaches, agencies and education companies are all hiring closers right now.','They have more leads than time. [CONFIRM: commission range]'),
+  NODES('Three beliefs stop most brothers',[['1','"Sales is shady, or I’d need my own business"'],['2','"I’m not a salesperson"'],['3','"I don’t have the time"']]),
+  THREE('One secret for each',-1,'The training'),
+
+  /* 7 · TRAINING · secret 1 */
+  DV('01','Secret one','The Halal Offer Filter'),
+  THREE('How to find vetted halal offers hiring closers and land 3 interviews in 14 days',0),
+  MT('Sales jobs are all scams or haram.','Some are. Twelve questions tell you which, in ten minutes.','Myth vs truth'),
+  NODES('Where the roles actually are',[['IG','offer owners already posting about hiring'],['Boards','remote closer job boards'],['Groups','closer communities'],['Intros','someone vouching for you']],'The sources',3),
+  NODES('Four of the twelve questions',[['Real?','does the product actually deliver'],['Riba?','is anyone pushed into interest finance'],['Lies?','does the script fake scarcity'],['Paid?','can you verify your commission']],'The filter'),
+  DAY('The 14-day plan',[[0,20,'Days 1-3 · list 30 offers','p'],[20,50,'Days 4-10 · 5 messages a day','g'],[70,30,'Days 11-14 · 3 interviews','g']],'Two weeks',false),
+  SHOT('proof-2.jpg','"Just got off the interview bro. Got the role."','Proof'),
+  CHAT('Type "filter" if you’d use this.',[['Yusuf','filter'],['Hamza','filter 100%'],['Ali','filter']]),
+
+  /* 7 · TRAINING · secret 2 */
+  DV('02','Secret two','The Amanah Close'),
+  THREE('The 5-step sales call that closes without pressure, lies or haram tactics',1),
+  MT('You need to be a smooth talker.','The best closers ask good questions and tell the truth.','Myth vs truth'),
+  T('Amanah is the trust you’re holding.','The person on the call is trusting you with their money and their decision.'),
+  NODES('The five steps',[['Open','set the frame'],['Discover','their situation, in their words'],['Gap','where they are and where they want to be'],['Prescribe','only if it really fits'],['Commit','ask clearly, then stay quiet']],'The Amanah Close'),
+  NODES('Step 2 is where calls are won',[['Ask','"What made you book this call today?"'],['Listen','for the real reason, not the first one'],['Repeat','their words back to them']],'Discover',1),
+  T('If it isn’t a fit, you say so.','That’s exactly why your yes means something.','Step 4'),
+  SHOT('proof-5.jpg','"Got my first $2k sale total."','Proof'),
+  CHAT('Does that make sense? Type yes.',[['Imran','yes'],['Zayd','yes makes sense'],['Musa','yes']]),
+
+  /* 7 · TRAINING · secret 3 */
+  DV('03','Secret three','The 2-Hour Block'),
+  THREE('How to take your first paid calls alongside uni or a 9-5',2),
+  MT('I need to quit uni or my job first.','Most calls happen in the evening. Two focused hours is enough to start.','Myth vs truth'),
+  DAY('Where the two hours go',[[0,14,'Fajr · Quran','p'],[14,38,'Uni or work','p'],[52,14,'1 hr outreach','g'],[66,6,'Maghrib','p'],[72,14,'1 hr calls','g'],[86,14,'Isha · sleep','p']],'The block'),
+  NODES('The weekly maths',[['10','calls a week, two a day'],['2','closes at $3,000'],['$600','at 10% commission']],'Conservative',2),
+  COUNT(2400,'$','a month, from two hours a day. And that’s the slow version.','Month one'),
+  SHOT('proof-1.jpg','"3K AUD client. Alhamdulillah."','Proof'),
+  CHAT('Could you find two hours a day? Drop a yes.',[['Ali','yes'],['Hamza','yes inshaAllah'],['Omar','yes']]),
+
+  /* 8 · COMMITMENT */
+  NODES('Quick check',[['1','You see why this is halal'],['2','You see how the call works'],['3','You could find two hours']],'Three yeses?'),
+  T('If that’s three yeses, stay with me.','The next few minutes matter most.'),
+
+  /* 9 · TRANSITION */
+  FLOW('Here’s the whole thing',[['◆','Filter','land 3 interviews'],['☎','Amanah Close','close honestly'],['◷','2-Hour Block','fit it around life'],['✦','First role','paid every week','me']],'Recap'),
+  T('Six months from now, nothing changes on its own.','Same shift, same loan, same scrolling.','The cost of waiting'),
+  NODES('You’ve got three options',[['1','do nothing and hope'],['2','do it alone and figure it out over months'],['3','let us shortcut it with you']],'Your three paths',2),
+  T('Heads up: in a second I’m going to show you how to work with me directly.','If it’s not for you, no problem. The training’s yours to keep.'),
+
+  /* 10 · OFFER */
+  T('The <em>Noble Circle</em> Accelerator','Land a remote closing role with a halal offer in 90 days.','Introducing'),
+  STACK(1),STACK(2),STACK(3),STACK(4),STACK(5),
+
+  /* 11 · PRICE (worth framing, no number) */
+  T('What’s it worth to have a skill that pays you every week, for life?'),
+  NODES('The other ways to get here',[['Years','a degree, then a job you didn’t pick'],['Months','trial and error on your own'],['Money','lost on courses that never got you hired']],'Compared to'),
+
+  /* 12 · BONUSES */
+  COVER('gift-2.png','And The First-Call Card is yours now, for staying.','Delivered at the end of this session.'),
+  NODES('Plus these, when you join',[['Vault','Interview Script Vault'],['Bank','Amanah Objection Bank'],['Tracker','your pipeline, set up'],['Mock','a practice interview with my team']],'Bonuses'),
+
+  /* 13 · RISK REVERSAL */
+  T('The call costs nothing.','My team will tell you honestly if it isn’t a fit yet.','No pressure'),
+  T('Do the work. If you haven’t landed a role in 90 days, <em>we keep coaching you free</em> until you do.','[CONFIRM terms]','The guarantee'),
+
+  /* 14 · URGENCY + CTA + CLOSE */
+  COUNT(20,'','seats this cohort. Everyone gets their calls reviewed, so that’s the real limit.','Why it’s capped'),
+  NODES('What happens next',[['1','answer 5 quick questions under the replay'],['2','pick a time with my team'],['3','map your first 90 days on the call']],'Apply now',0),
+  P('night.jpg','You don’t need to start a halal business. You need to learn to sell one.','Bismillah. See you on the inside.')
+]);
+</script>
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!doctype html>
+<!-- TEMPLATE: the premium pitch-site shell. Replace every {{PLACEHOLDER}}, rewrite the hero
+     headline per references/frameworks/headlines.md and the card kickers/descriptions per
+     prospect; keep the structure and motion. house/HOUSE.md fills the agency fields. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zain Webinar Funnel</title>
+  <meta name="description" content="A live webinar funnel for Muslim Sales Accelerator, already built. See the sample deliverables." />
+  <meta name="robots" content="noindex" />
+  <meta property="og:title" content="Zain (Webinar Funnel)" />
+  <meta property="og:description" content="A live webinar funnel for Muslim Sales Accelerator, already built. Open to see the sample deliverables." />
+  <meta property="og:image" content="og.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Zain (Webinar Funnel)" />
+  <meta name="twitter:image" content="og.png" />
+  <!-- Generated per build from the PROSPECT'S logo: node scripts/make_favicon.js {folder} -->
+  <link rel="icon" href="assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://calendly.com" crossorigin />
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
+  <link rel="stylesheet" href="assets/vendor/lenis.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    /* ================= SENDER OPTIONS (edit these, nothing else) =================
+       heroEmbed   : Loom share URL, Wistia media id/URL, or any iframe src. Empty = native player (assets/video/hero.mp4).
+       calendly    : your Calendly event URL. Embedded inline in the "Book a call" section.
+       mode        : "funnel" (default, prospect already sells high ticket)
+                     | "unaware" (no high-ticket offer yet: shows the designed offer card, swaps the headline, and adds the on-page bridge that walks the creator from "what problem?" to "show me the funnel").
+       brand       : optional agency branding. logo (path/URL) and/or name for the top-left lockup; url; footer line.
+       caseStudies : optional. [{ youtube: "VIDEO_ID" | image: "path", result: "$48k in 30 days", title: "...", text: "..." }]
+    ============================================================================== */
+    window.PITCH_CONFIG = {
+      heroEmbed: "",
+      calendly: "https://calendly.com/your-handle/discovery-call",
+      mode: (new URLSearchParams(location.search).get("mode") || "unaware"),
+      brand: { logo: "", name: "Full Stack Agency", url: "https://fullstackagency.info", footer: "Zain Webinar Funnel · Full Stack Agency" },
+      caseStudies: []
+    };
+  </script>
+</head>
+<body>
+  <main id="top">
+    <!-- ============================ HERO ============================ -->
+    <section class="hero section" id="hero">
+      <div class="agency-bar" id="agency-bar"></div>
+
+      <!-- photo-swarm signature: overlay above the already-visible hero, pointer-events none -->
+      <div class="swarm" id="swarm" aria-hidden="true">
+        <div class="swarm__ph" style="--ox:-60vw;--oy:-40vh;--ix:-34vw;--iy:-18vh;--r:-8deg;left:50%;top:50%"><img src="assets/img/swarm-1.jpg" alt="" /></div>
+        <div class="swarm__ph" style="--ox:60vw;--oy:-40vh;--ix:30vw;--iy:-18vh;--r:8deg;left:50%;top:50%"><img src="assets/img/swarm-2.jpg" alt="" /></div>
+        <div class="swarm__ph" style="--ox:-70vw;--oy:10vh;--ix:-38vw;--iy:8vh;--r:-5deg;left:50%;top:50%"><img src="assets/img/swarm-3.jpg" alt="" /></div>
+        <div class="swarm__ph" style="--ox:70vw;--oy:10vh;--ix:34vw;--iy:8vh;--r:5deg;left:50%;top:50%"><img src="assets/img/swarm-4.jpg" alt="" /></div>
+        <div class="swarm__ph" style="--ox:-55vw;--oy:60vh;--ix:-26vw;--iy:34vh;--r:-6deg;left:50%;top:50%"><img src="assets/img/swarm-5.jpg" alt="" /></div>
+        <div class="swarm__ph" style="--ox:55vw;--oy:60vh;--ix:22vw;--iy:34vh;--r:6deg;left:50%;top:50%"><img src="assets/img/swarm-6.jpg" alt="" /></div>
+      </div>
+
+      <div class="hero__inner container">
+        <p class="eyebrow reveal">Already built for Muslim Sales Accelerator</p>
+        <h1 class="hero__title reveal" data-mode="funnel">
+          I spent the last 96 hours building something that could add an
+          extra <span class="mark">$100k</span> per month to the
+          Muslim Sales Accelerator through a live webinar funnel.
+        </h1>
+        <h1 class="hero__title reveal" data-mode="unaware" hidden>
+          I spent the last 96 hours building a way for Muslim Sales Accelerator
+          to make an extra <span class="mark">$100k</span> per month from the audience
+          it already has, without adding to your week.
+        </h1>
+
+        <!-- Hero video: Loom / Wistia embed when PITCH_CONFIG.heroEmbed is set, else the native player -->
+        <div class="hplayer reveal">
+          <div class="hplayer__stage" id="hp-stage" data-state="idle">
+            <video class="hplayer__video" id="hp-video" playsinline preload="metadata" muted
+                   poster="assets/video/hero-poster.jpg">
+              <source src="assets/video/hero.mp4" type="video/mp4" />
+              <track id="hp-track" kind="captions" src="assets/video/hero.vtt" srclang="en" label="English" />
+            </video>
+
+            <span class="hplayer__scrim" aria-hidden="true"></span>
+
+            <button class="hplayer__big" id="hp-big" type="button" aria-label="Play video">
+              <span class="hplayer__big-glow" aria-hidden="true"></span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.53.85l10.5-6.86a1 1 0 0 0 0-1.7L9.53 4.3A1 1 0 0 0 8 5.14z"/></svg>
+            </button>
+
+            <div class="hplayer__cc" id="hp-cc-text" aria-live="polite"></div>
+
+            <div class="hplayer__bar" id="hp-bar">
+              <button class="hp-btn hp-btn--pp" id="hp-play" type="button" aria-label="Play / pause">
+                <svg class="hp-i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg>
+                <svg class="hp-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.53.85l10.5-6.86a1 1 0 0 0 0-1.7L9.53 4.3A1 1 0 0 0 8 5.14z"/></svg>
+              </button>
+              <span class="hp-time" id="hp-cur">0:00</span>
+              <div class="hp-scrub" id="hp-scrub" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                <div class="hp-scrub__track"><div class="hp-scrub__buf" id="hp-buf"></div><div class="hp-scrub__fill" id="hp-fill"></div></div>
+                <div class="hp-scrub__knob" id="hp-knob"></div>
+              </div>
+              <span class="hp-time hp-time--dur" id="hp-dur">0:00</span>
+              <div class="hp-speed">
+                <button class="hp-btn hp-btn--speed" id="hp-speed-btn" type="button" aria-label="Playback speed">1.5&times;</button>
+                <div class="hp-speed__menu" id="hp-speed-menu" role="menu">
+                  <button data-rate="1" type="button" role="menuitem">1&times;</button>
+                  <button data-rate="1.25" type="button" role="menuitem">1.25&times;</button>
+                  <button data-rate="1.5" class="is-on" type="button" role="menuitem">1.5&times;</button>
+                  <button data-rate="2" type="button" role="menuitem">2&times;</button>
+                </div>
+              </div>
+              <button class="hp-btn hp-btn--mute" id="hp-mute" type="button" aria-label="Unmute" aria-pressed="false">
+                <svg class="hp-i-muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9.5l4.5 5M21.5 9.5l-4.5 5"/></svg>
+                <svg class="hp-i-sound" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a9 9 0 0 1 0 12"/></svg>
+              </button>
+              <button class="hp-btn hp-btn--full" id="hp-full" type="button" aria-label="Fullscreen">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4H4v4M16 4h4v4M8 20H4v-4M16 20h4v-4"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__actions reveal">
+          <a class="btn btn--ghost" href="#deliverables" data-mode="funnel">See the deliverables <span class="arrow-down" aria-hidden="true"></span></a>
+          <a class="btn btn--ghost" href="#bridge" data-mode="unaware" hidden>Start here <span class="arrow-down" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== BRIDGE (unaware mode only) ======================
+         Walks a creator who has never sold high ticket from "what problem?" to "show me
+         the funnel", in the order the FSA outreach SOP prescribes: make the problem
+         visible → the transition story → the maths → the real objection (stress) → then
+         the built model below. Sender edits: the 02 story is YOUR transition case (house/HOUSE.md → Transition story).
+         Every figure below is researched per prospect (their real price ladder, list size,
+         the price band from the offer deck); {{...}} marks what the build must fill. -->
+    <section class="section bridge" id="bridge" data-mode="unaware" hidden>
+      <div class="container">
+        <div class="bridge__head">
+          <p class="eyebrow reveal">Before the deliverables</p>
+          <h2 class="section__title bridge__title reveal">Four things I noticed<br />before I built anything.</h2>
+        </div>
+
+        <!-- 01 · the problem, made visible -->
+        <article class="beat reveal">
+          <div class="beat__num"><span class="beat__idx">01</span><span class="beat__rule"></span></div>
+          <div class="beat__copy">
+            <p class="beat__kicker">The problem</p>
+            <h3 class="beat__title">14,800 subscribers, and the front door is a free course.</h3>
+            <p class="beat__text">Your YouTube has 14.8K subscribers and 816K views. Every video points to a free course or a VSL with an application, and no price shows anywhere. So every buyer still has to be found, qualified and sold one DM at a time, and the ceiling is how many conversations you can personally have.</p>
+          </div>
+          <div class="beat__aside">
+            <ul class="ladder">
+              <li><span>"$4,000 course", given away</span><b>$0</b></li>
+              <li><span>Free training + application</span><b>not shown</b></li>
+              <li><span>Noble Circle</span><b>not findable</b></li>
+              <li class="ladder__gap"><span>A live webinar that qualifies, then a call</span><b>nothing here</b></li>
+            </ul>
+            <p class="aside__note">Highest price on the site: none. And every sale costs you a DM thread.</p>
+          </div>
+        </article>
+
+        <!-- 02 · the transition story (the sender's own case) -->
+        <article class="beat reveal">
+          <div class="beat__num"><span class="beat__idx">02</span><span class="beat__rule"></span></div>
+          <div class="beat__copy">
+            <p class="beat__kicker">Someone who was exactly here</p>
+            <h3 class="beat__title">The biggest names teaching remote sales sell on a live webinar, not a free course.</h3>
+            <p class="beat__text">Shelby Sapp teaches beginners the same skill you do. Her front door is a live training: one session teaches, answers the "is this real" questions in bulk and sends qualified people to a call. Nobody is doing this for Muslims yet.</p>
+          </div>
+          <div class="beat__aside">
+            <div class="shift">
+              <div class="shift__col"><span class="shift__label">Before</span><b>Free course + VSL</b><span class="shift__sub">every lead asks the same questions in DMs</span></div>
+              <span class="shift__arrow" aria-hidden="true"></span>
+              <div class="shift__col shift__col--on"><span class="shift__label">After</span><b>Live webinar</b><span class="shift__sub">leads arrive taught, setters book the calls</span></div>
+            </div>
+            <p class="aside__note">Shelby Sapp · remote sales education [CONFIRM]</p>
+          </div>
+        </article>
+
+        <!-- 03 · the maths -->
+        <article class="beat reveal">
+          <div class="beat__num"><span class="beat__idx">03</span><span class="beat__rule"></span></div>
+          <div class="beat__copy">
+            <p class="beat__kicker">The maths</p>
+            <h3 class="beat__title">The same audience, at a price that matches what they're actually buying.</h3>
+            <p class="beat__text">Your buyer isn't buying a course. He's buying a halal income he controls, worth $2k to $15k a month to him for years. Next to that, $3,500 with a coach and warm intros is an easy decision, and six people a month out of 14,800 isn't a stretch.</p>
+          </div>
+          <div class="beat__aside">
+            <div class="sums">
+              <div class="sum"><b>14,800</b><span>YouTube subscribers already on your list, before one dollar of ads</span></div>
+              <div class="sum"><b>6 / mo</b><span>enrolments from one live webinar a month, an assumption we'll check on the call</span></div>
+              <div class="sum sum--on"><b>$21,000</b><span>a month at $3,500 each. The $100k figure is the ads-on version of this.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 · the real objection -->
+        <article class="beat reveal">
+          <div class="beat__num"><span class="beat__idx">04</span><span class="beat__rule"></span></div>
+          <div class="beat__copy">
+            <p class="beat__kicker">The objection you're already forming</p>
+            <h3 class="beat__title">"That sounds like a lot more work." It's the call you already run.</h3>
+            <p class="beat__text">High ticket done badly is more 1:1s. Done properly it's one 90-minute group call a week (the Noble Circle call you already run), async reviews in the community you already have, and someone on your side taking the sales calls. Roughly the same hours, for many times the revenue.</p>
+          </div>
+          <div class="beat__aside">
+            <ul class="week">
+              <li><b>1 × 90 min</b><span>group call a week, teach one beat, review three call recordings live</span></li>
+              <li><b>Async</b><span>Call reviews in threads, capped to a weekly block</span></li>
+              <li><b>0</b><span>sales calls taken by you. Your team qualifies and enrols.</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="bridge__close reveal">
+          <p class="bridge__closing">So instead of explaining it, I built it. The offer, the webinar, the funnel, the emails and the ads, all below.</p>
+          <a class="btn btn--primary" href="#deliverables">See what's built <span class="arrow-down" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= DELIVERABLES ======================== -->
+    <section class="section deliverables" id="deliverables">
+      <div class="container">
+        <h2 class="section__title deliverables__title reveal" data-mode="funnel">Here are the<br />sample deliverables:</h2>
+        <h2 class="section__title deliverables__title reveal" data-mode="unaware" hidden>Here's the whole model,<br />already built:</h2>
+
+        <!-- ---------- Group: The offer (unaware mode only) ---------- -->
+        <div class="group" data-mode="unaware" hidden>
+          <div class="group__head reveal">
+            <span class="group__rule"></span>
+            <span class="group__meta"><span class="group__label">The high-ticket offer</span><span class="group__count">01</span></span>
+            <span class="group__rule"></span>
+          </div>
+          <div class="grid grid--1">
+            <button class="pcard pcard--wide reveal" data-title="The high-ticket offer" data-embed="offer/">
+              <span class="thumb thumb--wide"><span class="thumb__bar"><i></i><i></i><i></i><span class="thumb__url">muslimsalesaccelerator.com/accelerator</span></span><img class="thumb__img" src="assets/img/offer-preview.jpg" alt="Noble Circle Accelerator preview" loading="lazy" /></span>
+              <span class="pcard__body"><span><span class="pcard__kicker">01 · The offer</span><span class="pcard__title">Noble Circle Accelerator</span><span class="pcard__desc">A 12-week guided programme to land a remote closing role with a halal offer, with a 1:1 coach and a Placement Desk. Priced $3k to $4.5k on a call.</span></span><span class="pcard__link">Open preview <span class="arrow" aria-hidden="true"></span></span></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ---------- Group: The funnel ---------- -->
+        <div class="group">
+          <div class="group__head reveal">
+            <span class="group__rule"></span>
+            <span class="group__meta"><span class="group__label">The funnel</span><span class="group__count">03</span></span>
+            <span class="group__rule"></span>
+          </div>
+          <div class="grid grid--3">
+            <button class="pcard reveal" data-title="Registration page" data-embed="register/">
+              <span class="thumb"><span class="thumb__bar"><i></i><i></i><i></i><span class="thumb__url">muslimsalesaccelerator.com/masterclass</span></span><img class="thumb__img" src="assets/img/register-preview.jpg" alt="Registration page preview" loading="lazy" /></span>
+              <span class="pcard__body"><span><span class="pcard__kicker">01 · Registration</span><span class="pcard__title">Registration page</span><span class="pcard__desc">Countdown, the 3 pillars, Meet your host, the free gift and real proof.</span></span><span class="pcard__link">Open preview <span class="arrow" aria-hidden="true"></span></span></span>
+            </button>
+            <button class="pcard reveal" data-title="Thank-you page" data-embed="thank-you/">
+              <span class="thumb"><span class="thumb__bar"><i></i><i></i><i></i><span class="thumb__url">muslimsalesaccelerator.com/masterclass/thank-you</span></span><img class="thumb__img" src="assets/img/thankyou-preview.jpg" alt="Thank-you page preview" loading="lazy" /></span>
+              <span class="pcard__body"><span><span class="pcard__kicker">02 · Thank you</span><span class="pcard__title">Thank-you page</span><span class="pcard__desc">Prep video, calendar buttons, the reply-YES email and the WhatsApp group.</span></span><span class="pcard__link">Open preview <span class="arrow" aria-hidden="true"></span></span></span>
+            </button>
+            <button class="pcard reveal" data-title="Replay + application" data-embed="replay/">
+              <span class="thumb"><span class="thumb__bar"><i></i><i></i><i></i><span class="thumb__url">muslimsalesaccelerator.com/masterclass/replay</span></span><img class="thumb__img" src="assets/img/replay-preview.jpg" alt="Replay + application preview" loading="lazy" /></span>
+              <span class="pcard__body"><span><span class="pcard__kicker">03 · Replay</span><span class="pcard__title">Replay + application</span><span class="pcard__desc">The replay with a working application that opens the booking calendar.</span></span><span class="pcard__link">Open preview <span class="arrow" aria-hidden="true"></span></span></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ---------- Group: Webinar presentation ---------- -->
+        <div class="group">
+          <div class="group__head reveal">
+            <span class="group__rule"></span>
+            <span class="group__meta"><span class="group__label">Webinar presentation</span><span class="group__count">01</span></span>
+            <span class="group__rule"></span>
+          </div>
+          <div class="grid grid--1">
+            <button class="pcard pcard--wide reveal" data-title="Webinar presentation (click or use the arrow keys)" data-embed="deck/">
+              <span class="thumb thumb--wide"><span class="thumb__bar"><i></i><i></i><i></i><span class="thumb__url">muslimsalesaccelerator.com/masterclass/live</span></span><img class="thumb__img" src="assets/img/deck-preview.jpg" alt="Webinar presentation preview" loading="lazy" /></span>
+              <span class="pcard__body"><span><span class="pcard__kicker">82 slides · click through</span><span class="pcard__title">Webinar presentation</span><span class="pcard__desc">The full live presentation, hook to close, with the same 3 pillars.</span></span><span class="pcard__link">Open preview <span class="arrow" aria-hidden="true"></span></span></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ---------- Group: Ad creatives ---------- -->
+        <div class="group">
+          <div class="group__head reveal">
+            <span class="group__rule"></span>
+            <span class="group__meta"><span class="group__label">Ad creatives</span><span class="group__count">03</span></span>
+            <span class="group__rule"></span>
+          </div>
+          <div class="grid grid--3">
+            <button class="pcard reveal" data-title="Static ad" data-embed="static-ad/" data-noanim>
+              <span class="thumb"><span class="thumb__bar"><i></i><i></i><i></i><span class="thumb__url">instagram.com/_zain.bilal</span></span><img class="thumb__img" src="assets/img/static-ad-preview.jpg" alt="Static ad preview" loading="lazy" /></span>
+              <span class="pcard__body"><span><span class="pcard__kicker">01 · Static</span><span class="pcard__title">Static ad</span><span class="pcard__desc">The registration promise as one image, shown in the Instagram feed.</span></span><span class="pcard__link">Open preview <span class="arrow" aria-hidden="true"></span></span></span>
+            </button>
+            <button class="pcard reveal" data-title="Ad creative scripts" data-embed="ad-scripts/">
+              <span class="thumb"><span class="thumb__bar"><i></i><i></i><i></i><span class="thumb__url">scripts · 5 angles</span></span><img class="thumb__img" src="assets/img/adscripts-preview.jpg" alt="Ad creative scripts preview" loading="lazy" /></span>
+              <span class="pcard__body"><span><span class="pcard__kicker">02 · Video</span><span class="pcard__title">Ad creative scripts</span><span class="pcard__desc">Five hooks, one angle each, every one pointing at the same live session.</span></span><span class="pcard__link">Open preview <span class="arrow" aria-hidden="true"></span></span></span>
+            </button>
+            <button class="pcard reveal" data-title="Instagram carousel" data-embed="carousel/phone/" data-noanim>
+              <span class="thumb"><span class="thumb__bar"><i></i><i></i><i></i><span class="thumb__url">instagram.com/_zain.bilal</span></span><img class="thumb__img" src="assets/img/carousel-preview.jpg" alt="Carousel preview" loading="lazy" /></span>
+              <span class="pcard__body"><span><span class="pcard__kicker">03 · Carousel</span><span class="pcard__title">Carousel</span><span class="pcard__desc">Seven slides, before to after, swipeable inside the phone.</span></span><span class="pcard__link">Open preview <span class="arrow" aria-hidden="true"></span></span></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ---------- Group: Email sequences ---------- -->
+        <div class="group">
+          <div class="group__head reveal">
+            <span class="group__rule"></span>
+            <span class="group__meta"><span class="group__label">Email sequences</span><span class="group__count">03</span></span>
+            <span class="group__rule"></span>
+          </div>
+          <div class="grid grid--3">
+            <button class="pcard reveal" data-title="Pre-webinar email sequence" data-embed="pre-webinar/">
+              <span class="thumb"><span class="thumb__bar"><i></i><i></i><i></i><span class="thumb__url">sequence · 9 emails</span></span><img class="thumb__img" src="assets/img/prewebinar-preview.jpg" alt="Pre-webinar preview" loading="lazy" /></span>
+              <span class="pcard__body"><span><span class="pcard__kicker">01 · Registration to live</span><span class="pcard__title">Pre-webinar</span><span class="pcard__desc">Nine emails that answer the real questions before Sunday.</span></span><span class="pcard__link">Open preview <span class="arrow" aria-hidden="true"></span></span></span>
+            </button>
+            <button class="pcard reveal" data-title="Post-webinar email sequence" data-embed="post-webinar/">
+              <span class="thumb"><span class="thumb__bar"><i></i><i></i><i></i><span class="thumb__url">sequence · 7 emails</span></span><img class="thumb__img" src="assets/img/postwebinar-preview.jpg" alt="Post-webinar preview" loading="lazy" /></span>
+              <span class="pcard__body"><span><span class="pcard__kicker">02 · Replay window</span><span class="pcard__title">Post-webinar</span><span class="pcard__desc">Seven emails, split by attendees and no-shows.</span></span><span class="pcard__link">Open preview <span class="arrow" aria-hidden="true"></span></span></span>
+            </button>
+            <button class="pcard reveal" data-title="Pre-call email sequence" data-embed="pre-call/">
+              <span class="thumb"><span class="thumb__bar"><i></i><i></i><i></i><span class="thumb__url">sequence · 6 emails</span></span><img class="thumb__img" src="assets/img/precall-preview.jpg" alt="Pre-call preview" loading="lazy" /></span>
+              <span class="pcard__body"><span><span class="pcard__kicker">03 · Booked to call</span><span class="pcard__title">Pre-call</span><span class="pcard__desc">Six emails that walk a booked applicant to the call pre-sold.</span></span><span class="pcard__link">Open preview <span class="arrow" aria-hidden="true"></span></span></span>
+            </button>
+          </div>
+        </div>
+        <div class="group">
+          <div class="group__head reveal">
+            <span class="group__rule"></span>
+            <span class="group__meta"><span class="group__label">Quick wins</span><span class="group__count">07</span></span>
+            <span class="group__rule"></span>
+          </div>
+          <div class="grid grid--1">
+            <button class="pcard pcard--wide reveal" data-title="Seven fixes I found" data-embed="audit/">
+              <span class="thumb thumb--wide"><span class="thumb__bar"><i></i><i></i><i></i><span class="thumb__url">youtube · instagram · setters</span></span><img class="thumb__img" src="assets/img/audit-preview.jpg" alt="Quick wins preview" loading="lazy" /></span>
+              <span class="pcard__body"><span><span class="pcard__kicker">7 fixes · in priority order</span><span class="pcard__title">Seven fixes I found</span><span class="pcard__desc">YouTube and Instagram congruency, setters on every DM, Noble Circle on Skool, and podcast reach.</span></span><span class="pcard__link">Open preview <span class="arrow" aria-hidden="true"></span></span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= CASE STUDIES (optional) ========================= -->
+    <section class="section case-studies" id="case-studies">
+      <div class="container">
+        <h2 class="section__title case-studies__title reveal">Case studies</h2>
+        <div class="cs-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============================ BOOK A CALL ============================ -->
+    <section class="section cta" id="cta">
+      <div class="container cta__wrap">
+        <h2 class="cta__title reveal">Book a call</h2>
+        <p class="cta__sub reveal" data-mode="unaware" hidden>A 20-minute discovery call. No plan and no price on it, just whether this model is real for Muslim Sales Accelerator. If it's real, the plan comes on the second call.</p>
+        <div class="cal-inline reveal" id="cal-inline"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================== STICKY CTA ======================== -->
+  <a class="stickycta" id="sticky-cta" href="#cta" data-calendly>
+    <span class="stickycta__dot" aria-hidden="true"></span>
+    <span class="stickycta__label">Book a call</span>
+  </a>
+
+  <!-- ============================ FOOTER ========================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__note" id="footer-note">Zain Webinar Funnel</span>
+    </div>
+  </footer>
+
+  <!-- ============================ LIGHTBOX ======================== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Deliverable preview">
+    <button class="lightbox__close" id="lightbox-close" aria-label="Close preview">&times;</button>
+    <div class="lightbox__inner">
+      <div class="lightbox__stage" id="lightbox-stage"></div>
+      <p class="lightbox__title" id="lightbox-title"></p>
+    </div>
+  </div>
+
+  <script>
+    // mode switch (funnel | unaware): an element shows when its data-mode list contains the mode
+    (function () {
+      var m = (window.PITCH_CONFIG && window.PITCH_CONFIG.mode) || "funnel";
+      document.querySelectorAll("[data-mode]").forEach(function (el) { el.hidden = el.getAttribute("data-mode").split(/\s+/).indexOf(m) === -1; });
+    })();
+  </script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

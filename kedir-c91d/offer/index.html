@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Dialed Accelerator</title>
+<meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<link rel="stylesheet" href="../assets/funnel.css">
+<style>
+  .of-hero { text-align: center; padding-block: clamp(80px, 11vw, 120px) 56px; }
+  .of-hero h1 { max-width: 20ch; margin: 0 auto; }
+  .of-photo { max-width: 980px; margin: 0 auto; aspect-ratio: 21/9; border-radius: 24px; overflow: hidden; border: 1px solid var(--line); }
+  .of-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+  .journey { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; max-width: 980px; margin: 0 auto; }
+  .jstep { text-align: center; padding: 22px 12px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); }
+  .jstep b { display: block; font-family: var(--display); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .jstep span { font-size: 15px; color: var(--text-2); line-height: 1.45; display: block; }
+  .jstep:last-child { background: var(--accent); border-color: var(--accent); }
+  .jstep:last-child b, .jstep:last-child span { color: var(--accent-ink); }
+  .stack { max-width: 860px; margin: 0 auto; display: grid; gap: 12px; }
+  .item { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; padding: 22px 26px; border-radius: 18px; background: linear-gradient(180deg, var(--surface-2), var(--surface)); border: 1px solid var(--line); }
+  .item h3 { font-size: 19px; }
+  .item p { margin: 6px 0 0; color: var(--text-2); font-size: 15.5px; }
+  .item .out { font-size: 13px; font-weight: 700; color: var(--text-3); text-align: right; white-space: nowrap; }
+  .item.dfy { border-color: rgba(206,242,64,.55); box-shadow: 0 0 0 1px rgba(206,242,64,.25) inset; }
+  .flag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); background: var(--accent); border-radius: 999px; padding: 4px 10px; margin-bottom: 8px; }
+  .bonus { max-width: 860px; margin: 28px auto 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .bonus div { padding: 18px 20px; border-radius: 14px; border: 1px dashed var(--line); color: var(--text-2); font-size: 15.5px; }
+  .bonus b { display: block; color: var(--text); font-size: 16px; margin-bottom: 2px; }
+  .week { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .week div { text-align: center; padding: 28px 18px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); }
+  .week b { display: block; font-family: var(--display); font-size: 30px; font-weight: 720; }
+  .week span { color: var(--text-2); font-size: 15px; }
+  .terms { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .term { padding: 30px; border-radius: 20px; background: linear-gradient(180deg, var(--surface-2), var(--surface)); border: 1px solid var(--line); text-align: center; }
+  .term .eyebrow { margin-bottom: 10px; }
+  .term h3 { font-size: 26px; }
+  .term p { color: var(--text-2); margin: 12px auto 0; max-width: 40ch; font-size: 15.5px; }
+  .maths { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .maths div { text-align: center; padding: 26px 16px; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); }
+  .maths div:last-child { border-color: var(--accent); }
+  .maths b { display: block; font-family: var(--display); font-size: 34px; font-weight: 720; }
+  .maths div:last-child b { color: var(--accent); }
+  .maths span { color: var(--text-2); font-size: 14.5px; }
+  .note { text-align: center; color: var(--text-3); font-size: 14px; margin-top: 18px; }
+  @media (max-width: 860px) {
+    .journey { grid-template-columns: 1fr 1fr; }
+    .journey .jstep:last-child { grid-column: 1 / -1; }
+    .week, .terms, .maths, .bonus { grid-template-columns: 1fr; }
+    .item { grid-template-columns: 1fr; }
+    .item .out { text-align: left; }
+    .of-photo { aspect-ratio: 4/3; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <section class="of-hero">
+    <div class="wrap">
+      <span class="eyebrow reveal">The Dialed Accelerator · 12 weeks</span>
+      <h1 class="reveal" style="--i:1">Your own brand, live and at <span class="hl">$10k in sales</span> inside 90 days</h1>
+      <p class="lead reveal" style="--i:2">A guided cohort where the Dialed team builds your store and your first ads with you, then scales it with the image-ad method.</p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-bottom:96px"><div class="of-photo reveal"><img src="../assets/img/kedir-gwagon.jpg" alt="Kedir with Shopify bags in his car"></div></section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">The 90 days</span><h2>From never sold anything to a brand that's selling</h2></div>
+      <div class="journey">
+        <div class="jstep reveal"><b>Week 1</b><span>Product picked with the 3-signal filter</span></div>
+        <div class="jstep reveal" style="--i:1"><b>Week 2</b><span>Store built and live</span></div>
+        <div class="jstep reveal" style="--i:2"><b>Week 3</b><span>First image ads running</span></div>
+        <div class="jstep reveal" style="--i:3"><b>Weeks 4 to 6</b><span>First sales, ads cut and doubled</span></div>
+        <div class="jstep reveal" style="--i:4"><b>Day 90</b><span>$10k in sales</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">The curriculum spine</span><h2>Built on the same 3 pillars as the training</h2></div>
+      <div class="pillars">
+        <article class="pillar reveal"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg></div><span class="pn">01</span><h3>The 3-signal product filter</h3><p>How to pick a product that's already selling before you spend a dollar on it.</p></article>
+        <article class="pillar reveal" style="--i:1"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16l-1.5 11h-13z"/><path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"/></svg></div><span class="pn">02</span><h3>The one-weekend brand launch</h3><p>How to launch a branded store in a weekend with the Dialed AI prompts and supplier list.</p></article>
+        <article class="pillar reveal" style="--i:2"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg></div><span class="pn">03</span><h3>The image-ad testing method</h3><p>The static-ad method behind a $300k month, and how to test it on $50 a day.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">What's inside</span><h2>Every problem you'd hit, already handled</h2></div>
+      <div class="stack">
+        <div class="item dfy reveal"><div><span class="flag">Done for you</span><h3>Your store, built by the Dialed team</h3><p>You pick the product with us. The team builds the branded store, so being "not technical" stops mattering.</p></div><span class="out">Live by day 14</span></div>
+        <div class="item dfy reveal"><div><span class="flag">Done for you</span><h3>Your first 10 static ads, designed for you</h3><p>The same image-ad style behind a $300k month, made for your product so your first test isn't a guess.</p></div><span class="out">Ads live by day 21</span></div>
+        <div class="item reveal"><div><h3>Your own Dialed operator</h3><p>One person on the team who checks your numbers every week, 1:1, and tells you what to cut and what to scale.</p></div><span class="out">Nothing guessed</span></div>
+        <div class="item reveal"><div><h3>Weekly group call with Kedir and B</h3><p>Bring your dashboard. Three stores get reviewed live every week.</p></div><span class="out">Momentum</span></div>
+        <div class="item reveal"><div><h3>The full Masterclass</h3><p>The 20-hour, 61-chapter course, SOPs and the private Dialed GPT, so every question has an answer at 2am.</p></div><span class="out">The playbook</span></div>
+      </div>
+      <div class="bonus">
+        <div class="reveal"><b>Bonus · Facebook ad account plugs</b>Run ads without fighting account bans.</div>
+        <div class="reveal" style="--i:1"><b>Bonus · Supplier intros</b>The suppliers Dialed brands already use.</div>
+        <div class="reveal"><b>Bonus · The Image-Ad Swipe File</b>30 static ads behind Dialed brands, by angle.</div>
+        <div class="reveal" style="--i:1"><b>Bonus · A seat at the next Dialed event</b>In the room with people doing 7 and 8 figures.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">Your week</span><h2>Built to fit around school or a job</h2></div>
+      <div class="week">
+        <div class="reveal"><b>1 × 60 min</b><span>group call with Kedir and B</span></div>
+        <div class="reveal" style="--i:1"><b>1 × 20 min</b><span>1:1 check-in with your operator</span></div>
+        <div class="reveal" style="--i:2"><b>~6 hours</b><span>on your store, with a checklist for each one</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="terms">
+        <div class="term reveal"><span class="eyebrow">The guarantee</span><h3>Do the work, hit $10k</h3><p>Launch on the plan and run the ad tests as set. If you haven't made your first $10k in sales by day 90, the team keeps working with you for free until you do.</p></div>
+        <div class="term reveal" style="--i:1"><span class="eyebrow">Investment</span><h3>$3,000 to $5,000</h3><p>Depends on the plan the team builds with you on the call. 20 seats per cohort, because every store and the first ads are built by hand.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">For Kedir: the arithmetic</span><h2>What the same community is worth with this in the middle</h2></div>
+      <div class="maths">
+        <div class="reveal"><b>1,500+</b><span>members already in Dialed, before one dollar of ads</span></div>
+        <div class="reveal" style="--i:1"><b>10 / mo</b><span>enrolments from weekly webinars, an assumption to check on the call</span></div>
+        <div class="reveal" style="--i:2"><b>$40k / mo</b><span>at $4,000 each. Cold traffic on top is how it reaches $100k.</span></div>
+      </div>
+      <p class="note">Community size from dialedconsulting.com/kedir. Price band and enrolment rate are planning assumptions.</p>
+      <div class="center" style="margin-top:44px"><a class="btn btn-primary" href="../replay/index.html">Apply for the next cohort <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </section>
+</main>
+<footer class="foot"><span class="brand"><img src="../assets/img/dialed-mark.svg" alt="" width="22" height="22">Dialed</span></footer>
+<script src="../assets/funnel.js"></script>
+</body>
+</html>

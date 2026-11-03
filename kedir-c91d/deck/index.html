@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Dialed Live Training · Deck</title>
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<style>
+  @font-face { font-family: "Bricolage Grotesque"; src: url("../assets/fonts/bricolage-var.woff2") format("woff2"); font-weight: 200 800; }
+  @font-face { font-family: "Rethink Sans"; src: url("../assets/fonts/rethink-var.woff2") format("woff2"); font-weight: 400 800; }
+  :root { --bg:#0c0c0b; --surface:#161615; --line:rgba(242,242,243,.12); --text:#f2f2f3; --text-2:#b4b4ae; --text-3:#8a8a84; --accent:#cef240; --ink:#0c0c0b;
+    --d:"Bricolage Grotesque","Rethink Sans",sans-serif; --s:"Rethink Sans",system-ui,sans-serif; --e:cubic-bezier(.16,1,.3,1); }
+  *{box-sizing:border-box} html,body{height:100%;margin:0}
+  body{overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--s);-webkit-font-smoothing:antialiased;user-select:none;cursor:pointer}
+  #stage{position:fixed;inset:0}
+  .slide{position:absolute;inset:0;overflow:hidden;display:grid;place-items:center;padding:6vh 6vw;
+    background:radial-gradient(70% 55% at 50% -10%,rgba(206,242,64,.09),transparent 60%),var(--bg)}
+  #bar{position:fixed;left:0;top:0;height:3px;background:var(--accent);width:0;transition:width .3s ease;z-index:5}
+  #counter{position:fixed;right:16px;bottom:12px;z-index:5;font:12px/1 var(--s);color:var(--text-3);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+  #mark{position:fixed;left:18px;bottom:10px;z-index:5;display:flex;gap:8px;align-items:center;font:700 11px/1 var(--d);letter-spacing:.2em;color:var(--text-3)}
+  #mark img{width:16px;height:16px}
+  /* entrance */
+  .in{animation:up .8s var(--e) both} .in2{animation:up .8s var(--e) .12s both} .in3{animation:up .8s var(--e) .24s both} .in4{animation:up .8s var(--e) .36s both}
+  @keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  .reduced .in,.reduced .in2,.reduced .in3,.reduced .in4{animation:none}
+  .c{text-align:center;max-width:1100px}
+  .eb{display:block;font:700 clamp(11px,1.1vw,14px)/1 var(--s);letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:2.4vh}
+  .h{font-family:var(--d);font-weight:740;letter-spacing:-.03em;line-height:1.04;font-size:clamp(30px,5.4vw,84px);margin:0;text-wrap:balance}
+  .h.m{font-size:clamp(26px,3.8vw,58px)}
+  .h .a{color:var(--accent)}
+  .p{font-size:clamp(16px,1.7vw,26px);color:var(--text-2);line-height:1.45;margin:2.6vh auto 0;max-width:46ch;text-wrap:balance}
+  /* photo slides */
+  .full{padding:0}
+  .full img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .full .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,12,11,0) 35%,rgba(12,12,11,.92))}
+  .full .cap{position:absolute;left:6vw;right:6vw;bottom:8vh;text-align:center}
+  .split{grid-template-columns:1fr 1fr;gap:5vw;align-items:center}
+  .split .ph{height:72vh;border-radius:22px;overflow:hidden;border:1px solid var(--line)}
+  .split .ph img{width:100%;height:100%;object-fit:cover}
+  .split .tx{max-width:40ch}
+  .split .tx .p{margin-left:0}
+  /* divider */
+  .div .n{font-family:var(--d);font-weight:800;font-size:clamp(90px,16vw,240px);line-height:.9;color:transparent;-webkit-text-stroke:2px var(--accent);letter-spacing:-.04em}
+  /* myth/truth */
+  .mt{display:grid;grid-template-columns:1fr 1fr;gap:2.4vw;width:min(1200px,88vw)}
+  .mt div{border-radius:24px;padding:5vh 3vw;min-height:44vh;display:flex;flex-direction:column;justify-content:center}
+  .mt .my{background:var(--surface);border:1px solid var(--line)} .mt .my .h{color:var(--text-2);text-decoration:line-through;text-decoration-color:rgba(255,120,100,.7);text-decoration-thickness:3px}
+  .mt .tr{background:var(--accent);color:var(--ink)} .mt .tr .eb{color:var(--ink)}
+  .mt .h{font-size:clamp(22px,2.8vw,44px)}
+  /* proof */
+  .pg{display:grid;gap:1.6vw;width:min(1300px,90vw);margin:0 auto}.pg.g2{width:min(980px,84vw)} .pg.g2{grid-template-columns:1fr 1fr} .pg.g3{grid-template-columns:repeat(3,1fr)} .pg.g4{grid-template-columns:repeat(4,1fr)}
+  .pg div{aspect-ratio:5/4;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+  .pg img{width:100%;height:100%;object-fit:cover;object-position:top}
+  .pcap{margin-top:3vh;text-align:center}
+  /* count */
+  .num{font-family:var(--d);font-weight:800;font-size:clamp(70px,13vw,210px);letter-spacing:-.04em;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+  /* lists */
+  .ls{list-style:none;padding:0;margin:4vh auto 0;display:grid;gap:1.6vh;width:min(900px,86vw);text-align:left}
+  .ls li{display:flex;gap:18px;align-items:center;padding:2.2vh 2vw;border-radius:16px;background:var(--surface);border:1px solid var(--line);font-size:clamp(16px,1.7vw,26px)}
+  .ls li b{flex:0 0 auto;width:2.2em;height:2.2em;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--ink);font-size:.8em}
+  .ls li.off{opacity:.25}
+  .ls li.df{border-color:var(--accent)}
+  .tag{font-size:.6em;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--accent);color:var(--ink);padding:.3em .7em;border-radius:99px;margin-left:auto;white-space:nowrap}
+  /* poll */
+  .poll{display:flex;gap:2vw;justify-content:center;margin-top:5vh;flex-wrap:wrap}
+  .poll span{padding:2.2vh 2.4vw;border-radius:99px;border:1px solid var(--line);background:var(--surface);font:700 clamp(15px,1.6vw,24px)/1 var(--s)}
+  .poll span:first-child{border-color:var(--accent);color:var(--accent)}
+  /* diagrams */
+  .flow{display:flex;align-items:center;justify-content:center;gap:1.4vw;margin-top:5vh;flex-wrap:wrap}
+  .flow .st{width:min(260px,24vw);aspect-ratio:1;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;text-align:center;padding:2vw;font:700 clamp(14px,1.6vw,24px)/1.25 var(--d)}
+  .flow .st.on{border-color:var(--accent);background:rgba(206,242,64,.08)}
+  .flow .ar{width:3vw;height:2px;background:var(--accent)}
+  .bars{display:flex;align-items:flex-end;gap:1.4vw;height:46vh;margin-top:4vh;justify-content:center}
+  .bars i{display:block;width:5vw;border-radius:10px 10px 0 0;background:var(--surface);border:1px solid var(--line);height:var(--h);transform-origin:bottom;animation:grow 1s var(--e) both;animation-delay:calc(var(--k)*90ms)}
+  .bars i.w{background:var(--accent);border-color:var(--accent)}
+  @keyframes grow{from{transform:scaleY(0)}to{transform:none}}
+  .reduced .bars i{animation:none}
+  .gift{grid-template-columns:auto 1fr;gap:5vw}
+  .gift img{height:66vh;border-radius:18px;transform:rotate(-4deg);box-shadow:0 50px 90px -40px #000}
+  .sig{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw;width:min(1200px,88vw);margin-top:5vh}
+  .sig div{padding:4vh 2vw;border-radius:20px;border:1px solid var(--line);background:var(--surface);text-align:center}
+  .sig b{display:block;font:800 clamp(28px,3.6vw,56px)/1 var(--d);color:var(--accent);margin-bottom:1.4vh}
+  .sig span{font-size:clamp(14px,1.4vw,21px);color:var(--text-2)}
+  @media (max-width:760px){.split,.gift{grid-template-columns:1fr}.split .ph{height:38vh}.gift img{height:40vh;margin:0 auto}.mt,.sig{grid-template-columns:1fr}.mt div{min-height:auto}.pg.g4,.pg.g3{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div id="stage" aria-live="polite"></div>
+<div id="bar"></div>
+<div id="mark"><img src="../assets/img/dialed-mark.svg" alt="">DIALED</div>
+<div id="counter"></div>
+<script>
+/* ===== ENGINE (template/deck-scaffold.html, unchanged mechanics) ===== */
+const DECK=(function(){const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduced)document.documentElement.classList.add('reduced');
+const stage=document.getElementById('stage'),bar=document.getElementById('bar'),counter=document.getElementById('counter');let current=0,SLIDES=[];
+function show(i){if(!SLIDES.length)return;current=Math.max(0,Math.min(SLIDES.length-1,i));const s=SLIDES[current];const el=document.createElement('section');el.className='slide '+(s.cls||'');el.innerHTML=(typeof s==='string')?s:(s.html||'');stage.replaceChildren(el);if(s&&typeof s.onMount==='function')s.onMount(el,{reduced});bar.style.width=(current/Math.max(1,SLIDES.length-1)*100)+'%';counter.textContent=(current+1)+' / '+SLIDES.length;}
+const next=()=>show(current+1),prev=()=>show(current-1);
+addEventListener('keydown',e=>{if(['ArrowRight',' ','Spacebar','PageDown'].includes(e.key)){e.preventDefault();next();}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev();}else if(e.key==='Home'){show(0);}else if(e.key==='End'){show(SLIDES.length-1);}});
+addEventListener('click',e=>{(e.clientX<innerWidth*0.33?prev:next)();});
+function load(sl){SLIDES=sl||[];show(0);}return{load,show,next,prev,reduced};})();
+
+/* ===== slide types (compact data → HTML) ===== */
+const I=n=>'../assets/img/'+n;
+const T={
+  say:(eb,h,p)=>({html:`<div class="c">${eb?`<span class="eb in">${eb}</span>`:''}<h2 class="h in2">${h}</h2>${p?`<p class="p in3">${p}</p>`:''}</div>`}),
+  sayM:(eb,h,p)=>({html:`<div class="c">${eb?`<span class="eb in">${eb}</span>`:''}<h2 class="h m in2">${h}</h2>${p?`<p class="p in3">${p}</p>`:''}</div>`}),
+  photo:(img,h,p,pos)=>({cls:'full',html:`<img src="${I(img)}" alt="" style="object-position:${pos||'center'}"><div class="scrim"></div><div class="cap"><h2 class="h m in">${h}</h2>${p?`<p class="p in2">${p}</p>`:''}</div>`}),
+  split:(img,eb,h,p,pos)=>({cls:'split',html:`<div class="ph in"><img src="${I(img)}" alt="" style="object-position:${pos||'center'}"></div><div class="tx">${eb?`<span class="eb in2">${eb}</span>`:''}<h2 class="h m in2">${h}</h2>${p?`<p class="p in3">${p}</p>`:''}</div>`}),
+  div:(n,eb,h)=>({cls:'div',html:`<div class="c"><div class="n in">${n}</div><span class="eb in2">${eb}</span><h2 class="h m in3">${h}</h2></div>`}),
+  myth:(m,t)=>({html:`<div class="mt"><div class="my in"><span class="eb">Myth</span><h3 class="h">${m}</h3></div><div class="tr in2"><span class="eb">Truth</span><h3 class="h">${t}</h3></div></div>`}),
+  proof:(imgs,cap)=>({html:`<div><div class="pg g${imgs.length} in">${imgs.map(i=>`<div><img src="${I(i)}" alt="Member win"></div>`).join('')}</div>${cap?`<p class="p pcap in2">${cap}</p>`:''}</div>`}),
+  count:(pre,end,suf,lab)=>(end=+end,{html:`<div class="c"><div class="num in" data-end="${end}">${pre}<span>0</span>${suf}</div><p class="p in2">${lab}</p></div>`,onMount(el,{reduced}){const n=el.querySelector('.num span');if(reduced){n.textContent=end.toLocaleString();return;}const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/1300),e=1-Math.pow(1-p,3);n.textContent=Math.round(end*e).toLocaleString();if(p<1)requestAnimationFrame(f);})(t0);}}),
+  list:(eb,h,items,cls)=>({html:`<div class="c">${eb?`<span class="eb in">${eb}</span>`:''}<h2 class="h m in2">${h}</h2><ul class="ls in3">${items.map((x,i)=>`<li class="${(cls&&cls[i])||''}"><b>${i+1}</b>${x}</li>`).join('')}</ul></div>`}),
+  poll:(h,opts)=>({html:`<div class="c"><span class="eb in">Drop it in the chat</span><h2 class="h m in2">${h}</h2><div class="poll in3">${opts.map(o=>`<span>${o}</span>`).join('')}</div></div>`}),
+  flow:(eb,h,steps,on)=>({html:`<div class="c"><span class="eb in">${eb}</span><h2 class="h m in2">${h}</h2><div class="flow in3">${steps.map((s,i)=>`${i?'<span class="ar"></span>':''}<div class="st ${i===on?'on':''}">${s}</div>`).join('')}</div></div>`}),
+  bars:(eb,h,vals,win,p)=>({html:`<div class="c"><span class="eb in">${eb}</span><h2 class="h m in2">${h}</h2><div class="bars">${vals.map((v,i)=>`<i class="${i===win?'w':''}" style="--h:${v}%;--k:${i}"></i>`).join('')}</div>${p?`<p class="p in3">${p}</p>`:''}</div>`}),
+  sig:(eb,h,items)=>({html:`<div class="c"><span class="eb in">${eb}</span><h2 class="h m in2">${h}</h2><div class="sig in3">${items.map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div></div>`}),
+  gift:(img,eb,h,p)=>({cls:'gift',html:`<img class="in" src="${I(img)}" alt=""><div class="tx" style="max-width:42ch"><span class="eb in2">${eb}</span><h2 class="h m in2">${h}</h2><p class="p in3" style="margin-left:0">${p}</p></div>`})
+};
+const P3=['The 3-signal product filter','The one-weekend brand launch','The image-ad testing method'];
+const STACK=['A 12-week guided cohort, product to $10k','Your store, built by the Dialed team','Your first 10 static ads, designed for you','Your own Dialed operator, 1:1 every week','Weekly group call with me and B','The full Masterclass, SOPs and the private Dialed GPT'];
+const stackAt=n=>T.list('The Dialed Accelerator','Here\'s what you get',STACK.slice(0,n),STACK.slice(0,n).map((_,i)=>(i===1||i===2)?'df':''));
+const stackFull={html:`<div class="c"><span class="eb in">The Dialed Accelerator</span><h2 class="h m in2">Everything, together</h2><ul class="ls in3">${STACK.map((x,i)=>`<li class="${(i===1||i===2)?'df':''}"><b>${i+1}</b>${x}${(i===1||i===2)?'<span class="tag">Done for you</span>':''}</li>`).join('')}</ul></div>`};
+
+DECK.load([
+/* 1 · HOOK */
+T.say('Live with Kedir','How 19-year-olds are making their first <span class="a">$10k online</span> with simple image ads','Without inventory, a following or a business degree.'),
+T.poll('True or false: you need a big following to sell online.',['False','True']),
+T.say('','It\'s false.','Most of the stores in Dialed launched with zero followers. They bought attention with image ads instead.'),
+T.poll('True or false: video ads beat image ads.',['False','True']),
+T.count('$','300000','','in one month, from a Dialed brand running only image ads.'),
+T.photo('sq-salesphone.jpg','By the end of tonight you\'ll know exactly how that works.','',' center'),
+/* 2 · PAIN */
+T.div('01','The problem','Where most people are right now'),
+T.say('','You\'ve watched the videos. You\'ve saved the TikToks.','And you still haven\'t made a single sale.'),
+T.say('','Or you tried a store, spent $400 on ads, and got two orders.','Then you told yourself ecom is dead.'),
+T.say('','Meanwhile your job pays you for 40 hours and the rent eats half of it.','And school\'s telling you to wait four more years.'),
+T.list('Why it hasn\'t worked yet','It\'s usually one of these three',['You picked a product because it looked cool, not because it was selling','You spent weeks building a store instead of testing','You ran ads with no method, so every dollar was a guess']),
+T.say('','None of that is your fault.','Nobody showed you the order to do it in.'),
+/* 3 · TEASE */
+T.div('02','What\'s coming tonight','Stay to the end for this'),
+T.list('Tonight','You\'re going to learn',P3),
+T.gift('gift-2-cover.png','Stay till the end','There\'s a free gift at the end','The swipe file of static ads we actually use. I\'ll show you how to get it right at the end.'),
+/* 4 · EXCITE */
+T.photo('sq-dashboard.jpg','Picture opening Shopify on a Tuesday morning and seeing sales you made while you slept.','That\'s the first week most people in Dialed remember.','center 30%'),
+T.say('','Picture telling your parents you don\'t need the job anymore.','And actually having the dashboard to show them.'),
+/* 5 · SOCIAL PROOF (origin story photo by photo) */
+T.div('03','Who I am','And why I\'m teaching this'),
+T.split('sq-window.jpg','Kedir','I\'m 20. I dropped out at 19 and went all in on ecom.','Everyone thought I was crazy. Honestly, some days so did I.','center 20%'),
+T.split('sq-car.jpg','The first year','I made every mistake on the list.','Wrong products, slow stores, ads I didn\'t understand.','center'),
+T.split('kedir-brandon.jpg','Then','I met B, and we started running brands together.','We stopped guessing and built a method.','center'),
+T.count('$','582000','','across our brands in 30 days.'),
+T.count('$','412384','','in one month, from one business model.'),
+T.photo('miami-event.jpg','Now we\'re in rooms with 8-figure operators.','Miami, with the people actually doing it.'),
+T.photo('kedir-cars.jpg','And life looks pretty different.','',''),
+T.say('Dialed','So we built Dialed to teach the method.','Here\'s what members are posting.'),
+T.proof(['win-1.jpg','win-2.jpg','win-3.jpg','win-4.jpg'],'Posted in the Dialed community.'),
+T.proof(['win-5.jpg','win-6.jpg','win-7.jpg','win-8.jpg'],'First stores, first $1k days, first $10k months.'),
+T.sig('From the members','Results listed on our site',[['7 days','$0 to $2k a day'],['22 days','first $10k made'],['37 days','to $100k a month']]),
+/* 6 · PARADIGM */
+T.div('04','The big idea','The thing that changes everything'),
+T.say('','It was never the product. It was never the store.','It was always whether you had a way to test cheaply and fast.'),
+T.flow('The old way','Months of building, then hope',['Pick a cool product','Build for weeks','Pray ads work'],2),
+T.flow('The Dialed way','Days of testing, then scale',['Pick on data','Launch in a weekend','Test image ads'],2),
+T.list('Three beliefs hold people back','We\'re breaking all three tonight',['"All the good products are taken"','"I\'m not technical enough to build a store"','"Ads are just burning money"']),
+/* 7 · TRAINING · secret 1 */
+T.div('S1','Secret one',P3[0]),
+T.myth('All the good products are already taken.','The best products are already selling. You just need to see it before you pay for it.'),
+T.sig('The 3 signals','A product has to show all three',[['Signal 1','Someone is already running ads on it'],['Signal 2','The ads have been live for 2+ weeks'],['Signal 3','You can sell it at 3x what it costs']]),
+T.say('','If an ad\'s been running for two weeks, it\'s making money.','Nobody keeps paying for an ad that loses.'),
+T.bars('Signal 3','Margin decides everything',[30,45,62,90],3,'At 3x cost you can afford to test. Below that, ads eat you alive.'),
+T.split('sq-salesphone.jpg','Real example','One filter, one product, 134 orders in a day.','This is what it looks like when all three signals line up.','center'),
+T.poll('Does that make sense so far?',['Yes','Kind of']),
+/* secret 2 */
+T.div('S2','Secret two',P3[1]),
+T.myth('You need to be technical to build a good store.','You need a template, the right prompts and one weekend.'),
+T.list('The weekend','Here\'s the order we do it in',['Saturday morning: the brand name, logo and colours with our AI prompts','Saturday afternoon: the store from the template','Sunday: the product page copy and the supplier connected']),
+T.say('','A brand beats a random store.','People trust a name. Trust is what lets your ads convert.'),
+T.photo('sq-gwagon.jpg','That\'s why the brands we run look like brands.','Not like a 2019 dropshipping store.','center 30%'),
+T.proof(['win-3.jpg','win-5.jpg'],'New stores, first week live.'),
+T.poll('Can you picture yourself launching one in a weekend?',['Yes','Not yet']),
+/* secret 3 */
+T.div('S3','Secret three',P3[2]),
+T.myth('You need expensive video ads to compete.','Simple image ads took one Dialed brand to $300k in a month.'),
+T.count('$','50','/day','is all you need to start the test.'),
+T.flow('The method','Test, cut, double',['5 image ads','Cut the losers at 3 days','Double the winners'],2),
+T.bars('What a test looks like','One winner pays for the four losers',[20,26,18,92,24],3),
+T.split('sq-dashboard.jpg','Why images','You can make ten images in the time one video takes.','More tests means you find the winner faster.','center'),
+T.proof(['win-6.jpg','win-8.jpg'],'Image ads, scaled.'),
+/* 8 · COMMITMENT */
+T.poll('Is this making sense?',['Yes','Yes, keep going']),
+T.poll('Could you see yourself doing this in the next 90 days?',['Yes','Maybe']),
+/* 9 · TRANSITION */
+T.div('05','Here\'s the whole game','Everything in one place'),
+T.list('The recap','Three steps, in this order',P3),
+T.say('','If you do nothing, next year looks exactly like this year.','Same job, same rent, same videos saved for later.'),
+T.list('You\'ve got three options','From here',['Do nothing, and keep watching','Do it alone, and spend a year on the mistakes I made','Let us shortcut it, with the team building it beside you'],[ 'off','','' ]),
+T.say('Heads up','In a minute I\'m going to tell you how we can help.','If that\'s not for you, no stress. Everything I taught tonight is yours.'),
+/* 10 · OFFER */
+T.say('Introducing','The Dialed Accelerator','Your own brand, live and at $10k in sales inside 90 days.'),
+stackAt(1),stackAt(2),stackAt(3),stackAt(4),stackAt(5),stackAt(6),
+stackFull,
+T.say('The unfair advantage','We build the store and your first ads with you.','So the two places beginners get stuck just don\'t happen.'),
+/* 11 · PRICE */
+T.say('What it\'s worth','A year of mistakes costs more than this.','The investment is a serious one, and the team will walk you through it on the call.'),
+/* 12 · BONUSES */
+T.gift('gift-2-cover.png','Free tonight','The Image-Ad Swipe File','30 static ads behind Dialed brands, sorted by angle. Yours free for being here till the end.'),
+T.list('Bonuses','When you join',['Facebook ad account plugs','Supplier intros','A seat at the next Dialed event']),
+/* 13 · RISK REVERSAL */
+T.say('The guarantee','Do the work. Hit $10k.','Launch on the plan and run the tests. If you\'re not at $10k in sales by day 90, the team keeps working with you for free until you are.'),
+T.say('','The call costs nothing.','If it\'s not a fit, my team will tell you straight.'),
+/* 14 · URGENCY + CTA */
+T.say('Why it\'s capped','20 seats per cohort.','Every store and the first ads are built by hand. We can\'t do more than that and do it properly.'),
+T.photo('kedir-window.jpg','Apply below this video. Answer four questions and pick a time with my team.','The next cohort starts in two weeks.','center 30%'),
+T.say('','A year from now you\'ll wish you\'d started tonight.','Let\'s get you dialed.')
+]);
+</script>
+</body>
+</html>
