@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Carousel · unshakeablemethod</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}html,body{height:100%;margin:0;max-width:100%;overflow:hidden}
+  body{display:grid;place-items:center;background:radial-gradient(60% 50% at 50% 30%,#1d4a3c,#06201a);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Helvetica,Arial,sans-serif}
+  .phone{width:min(390px,calc(100vw - 24px),calc((100vh - 24px) * .487));aspect-ratio:390/800;border-radius:54px;padding:12px;background:linear-gradient(145deg,#2b2b2e,#0d0d0f);box-shadow:0 0 0 2px #3a3a3e,0 40px 80px -20px #000;position:relative}
+  .scr{width:100%;height:100%;border-radius:43px;overflow:hidden;background:#fff;color:#000;display:flex;flex-direction:column;position:relative;container-type:inline-size}
+  .island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:32%;height:30px;border-radius:20px;background:#000;z-index:3}
+  .sb{display:flex;justify-content:space-between;padding:14px 28px 6px;font-weight:600;font-size:15px}
+  .igtop{display:flex;justify-content:space-between;align-items:center;padding:6px 14px 8px;border-bottom:1px solid #efefef}
+  .igtop b{font-family:"Brush Script MT","Snell Roundhand",cursive;font-size:27px;font-weight:400}
+  .ph{display:flex;align-items:center;gap:10px;padding:10px 12px}
+  .ph img{width:34px;height:34px;border-radius:50%;object-fit:cover;outline:2px solid #fff;box-shadow:0 0 0 3.5px #d62976}
+  .ph div{flex:1;line-height:1.15}.ph b{font-size:13.5px}.ph b::after{content:" ✓";color:#0095f6;font-size:11px}
+  .ph small{display:block;font-size:11.5px;color:#737373}
+  .car{position:relative;aspect-ratio:4/5;overflow:hidden;touch-action:pan-y}
+  .track{display:flex;height:100%;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+  .sl{flex:0 0 100%;height:100%;position:relative;display:flex;flex-direction:column;justify-content:center;padding:9cqw 8cqw;background:#07261d;color:#f6efe2;overflow:hidden}
+  .sl h2{font:600 9.6cqw/1.05 Fraunces,Georgia,serif;margin:0;letter-spacing:-.01em}
+  .sl em{font-style:italic;color:#ecc77a}
+  .sl p{font:500 4.1cqw/1.4 Manrope,sans-serif;color:#c9d3c8;margin:4cqw 0 0}
+  .sl .k{font:800 2.9cqw/1 Manrope;letter-spacing:.2em;text-transform:uppercase;color:#d6a84e;margin-bottom:4cqw}
+  .sl.photo{justify-content:flex-end;background:#000 center/cover}
+  .sl.photo::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(4,24,18,.95) 78%)}
+  .sl.photo>*{position:relative}
+  .sl.cream{background:#f6efe2;color:#0b3227}.sl.cream p{color:#3d5a4f}.sl.cream em{color:#9a7428}
+  .bars{display:flex;gap:4cqw;align-items:flex-end;height:40cqw;margin-top:6cqw}
+  .bars div{flex:1;border-radius:2cqw 2cqw 0 0;background:linear-gradient(180deg,#ecc77a,#b88a32);color:#1d1405;font:800 3.6cqw Manrope;text-align:center;padding-top:2cqw}
+  .bars span{display:block;font:600 2.8cqw Manrope;color:#c9d3c8;text-align:center;margin-top:2cqw}
+  .fl{display:grid;gap:2.4cqw;margin-top:5cqw}
+  .fl div{padding:3.2cqw 4cqw;border-radius:3cqw;background:rgba(255,255,255,.07);border:1px solid rgba(246,239,226,.15);font:700 3.8cqw Manrope;display:flex;justify-content:space-between}
+  .fl div b{color:#ecc77a}
+  .cta{background:linear-gradient(160deg,#d6a84e,#b88a32);color:#1d1405;text-align:center;align-items:center}
+  .cta h2{color:#1d1405}.cta p{color:#3a2a0a}
+  .cta .btn{margin-top:6cqw;background:#07261d;color:#f6efe2;font:800 4cqw Manrope;padding:4cqw 7cqw;border-radius:99px}
+  .cnt{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.6);color:#fff;font-size:12px;padding:3px 8px;border-radius:99px;z-index:2}
+  .nav{position:absolute;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;border:0;background:rgba(255,255,255,.85);z-index:2;cursor:pointer;font-size:14px;color:#222}
+  .nav.p{left:8px}.nav.n{right:8px}
+  .lm{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#0f5c45;color:#fff;font-size:13.5px;font-weight:600}
+  .acts{display:flex;align-items:center;gap:14px;padding:8px 12px 2px;font-size:22px}
+  .dots{flex:1;display:flex;justify-content:center;gap:4px;margin-right:72px}
+  .dots i{width:6px;height:6px;border-radius:50%;background:#c4c4c4}.dots i.on{background:#0095f6}
+  .cap{padding:4px 12px;font-size:13px;line-height:1.4}.cap b{margin-right:4px}
+  .cap small{color:#737373;display:block;margin-top:4px}
+</style>
+  <link rel="icon" href="../../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png" />
+</head>
+<body>
+<div class="phone"><div class="scr">
+  <div class="island"></div>
+  <div class="sb"><span>9:41</span><span>▮▮▮ ◔</span></div>
+  <div class="igtop"><b>Instagram</b><span style="font-size:20px">♡ ✈</span></div>
+  <div class="ph"><img src="../../assets/img/omar-avatar.jpg" alt=""><div><b>unshakeablemethod</b><small>Sponsored</small></div><span>•••</span></div>
+  <div class="car" id="car">
+    <span class="cnt" id="cnt">1/7</span>
+    <button class="nav p" id="pv" aria-label="Previous">‹</button><button class="nav n" id="nx" aria-label="Next">›</button>
+    <div class="track" id="tr">
+      <div class="sl photo" style="background-image:url(../../assets/img/yt-j6pjgIuT6Ck.jpg)"><span class="k">For Muslims with a 9-to-5</span><h2>Your salary will never make you <em>free.</em></h2><p>Swipe. Here's the maths nobody shows you.</p></div>
+      <div class="sl"><span class="k">The problem</span><h2>Investing $500 a month on a salary?</h2><div class="bars"><div style="height:100%">31 yrs<span style="margin-top:22cqw">until it pays you</span></div></div></div>
+      <div class="sl"><span class="k">Why</span><h2>It's not an investing problem.</h2><p>It's an income problem. You can't invest your way out of a salary that ends at zero every month.</p></div>
+      <div class="sl photo" style="background-image:url(../../assets/img/yt-roFAOFwfkrk.jpg)"><span class="k">What I did in 2017</span><h2>I resold a freelancer's service. <em>No skill of my own.</em></h2><p>$2M+ profit, under an hour a day.</p></div>
+      <div class="sl"><span class="k">The model</span><h2>The Officeless Agency</h2><div class="fl"><div>Client pays you <b>$1,500</b></div><div>Freelancer delivers <b>$600</b></div><div>You keep, monthly <b>$900</b></div></div></div>
+      <div class="sl cream"><span class="k">Then invest it, halal</span><h2>Add $5k a month and 31 years becomes <em>9.</em></h2><p>Three Shariah-screened ETFs, bought automatically on the 1st.</p></div>
+      <div class="sl cta"><span class="k" style="color:#1d1405">Free live masterclass</span><h2>I'll show you the whole thing, live.</h2><p>Tuesday 17 November · 7pm Dubai</p><span class="btn">Save my seat →</span></div>
+    </div>
+  </div>
+  <div class="lm"><span>Save my seat</span><span>›</span></div>
+  <div class="acts"><span>♡</span><span>💬</span><span>✈</span><div class="dots" id="dots"></div><span>⌑</span></div>
+  <div class="cap"><b>unshakeablemethod</b>Your salary pays the bills. This is how it starts paying for your freedom. Free live training Tuesday, link to save your seat.</div>
+</div></div>
+<script>
+(function(){var tr=document.getElementById('tr'),n=tr.children.length,i=0,d=document.getElementById('dots');
+for(var k=0;k<n;k++){d.appendChild(document.createElement('i'))}
+function go(j){i=Math.max(0,Math.min(n-1,j));tr.style.transform='translateX('+(-100*i)+'%)';document.getElementById('cnt').textContent=(i+1)+'/'+n;
+[].forEach.call(d.children,function(x,k){x.className=k===i?'on':''});pv.style.display=i?'':'none';nx.style.display=i<n-1?'':'none'}
+var pv=document.getElementById('pv'),nx=document.getElementById('nx');pv.onclick=function(){go(i-1)};nx.onclick=function(){go(i+1)};
+var x0=null,c=document.getElementById('car');c.addEventListener('pointerdown',function(e){x0=e.clientX});
+c.addEventListener('pointerup',function(e){if(x0===null)return;var dx=e.clientX-x0;if(Math.abs(dx)>30)go(i+(dx<0?1:-1));x0=null});
+document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(i+1);if(e.key==='ArrowLeft')go(i-1)});go(0)})();
+</script>
+</body>
+</html>

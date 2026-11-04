@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>The Halal Freedom Masterclass · Webinar presentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html,body{height:100%;margin:0}
+body{overflow:hidden;color:#f6efe2;font-family:Manrope,system-ui,sans-serif;background:#07261d}
+#stage{position:fixed;inset:0;container-type:size}
+.slide{position:absolute;inset:0;overflow:hidden;display:grid;place-items:center;padding:6cqh 7cqw;
+ background:radial-gradient(70% 60% at 50% -10%,rgba(214,168,78,.18),transparent 60%),radial-gradient(50% 50% at 0% 100%,rgba(31,120,90,.35),transparent 70%),#07261d}
+#bar{position:fixed;left:0;top:0;height:3px;background:#d6a84e;width:0;transition:width .3s;z-index:5}
+#counter{position:fixed;right:16px;bottom:12px;z-index:5;font:12px/1 Manrope;opacity:.5;letter-spacing:.06em}
+.c{text-align:center;max-width:82cqw}
+h1,h2{font-family:Fraunces,Georgia,serif;font-weight:600;margin:0;letter-spacing:-.015em;line-height:1.08}
+h1{font-size:min(7.2cqw,11cqh)} h2{font-size:min(5cqw,8.6cqh)}
+p.s{font-size:min(2.2cqw,3.8cqh);color:#c9d3c8;margin:2.6cqh auto 0;max-width:62cqw;line-height:1.45}
+em{font-style:italic;color:#ecc77a}
+.eb{display:inline-block;font:800 min(1.25cqw,2.2cqh)/1 Manrope;letter-spacing:.24em;text-transform:uppercase;color:#d6a84e;margin-bottom:3cqh}
+.up{opacity:0;transform:translateY(3cqh);animation:up .7s cubic-bezier(.16,1,.3,1) forwards}
+.d1{animation-delay:.12s}.d2{animation-delay:.3s}.d3{animation-delay:.5s}.d4{animation-delay:.7s}.d5{animation-delay:.9s}
+@keyframes up{to{opacity:1;transform:none}}
+html.reduced .up{animation:none;opacity:1;transform:none}
+.div{background:linear-gradient(135deg,#0b3227,#07261d)}
+.div .n{font:600 min(16cqw,26cqh)/1 Fraunces;color:rgba(214,168,78,.22)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:5cqw;align-items:center;width:100%;height:100%}
+.split img{width:100%;height:76cqh;object-fit:cover;border-radius:2cqw;box-shadow:0 4cqh 8cqh -4cqh #000}
+.split .t{text-align:left} .split .t p.s{margin-left:0}
+.big{font:600 min(15cqw,24cqh)/1 Fraunces;color:#ecc77a}
+.mt{display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw;width:84cqw}
+.mt div{padding:5cqh 3cqw;border-radius:1.6cqw;text-align:left}
+.mt .m{background:rgba(227,120,100,.1);border:1px solid rgba(227,120,100,.35)}
+.mt .t{background:rgba(214,168,78,.12);border:1px solid rgba(214,168,78,.5)}
+.mt small{font:800 min(1.2cqw,2cqh)/1 Manrope;letter-spacing:.2em;text-transform:uppercase}
+.mt .m small{color:#f0a090}.mt .t small{color:#ecc77a}
+.mt b{display:block;font:600 min(2.8cqw,4.8cqh)/1.25 Fraunces;margin-top:2cqh}
+.li{list-style:none;padding:0;margin:3cqh auto 0;display:grid;gap:1.6cqh;width:min(70cqw,1000px);text-align:left}
+.li li{padding:1.8cqh 2.4cqw;border-radius:1.2cqw;background:rgba(255,255,255,.05);border:1px solid rgba(246,239,226,.12);font-size:min(2.1cqw,3.6cqh);display:flex;gap:1.6cqw;align-items:center}
+.li li b{font:600 min(2cqw,3.4cqh)/1 Fraunces;color:#d6a84e;min-width:3ch}
+.li li.on{border-color:#d6a84e;background:rgba(214,168,78,.14)}
+.q{background:linear-gradient(135deg,#d6a84e,#b88a32);color:#1d1405}
+.q .eb{color:#1d1405}.q em{color:#1d1405;text-decoration:underline}
+.ph3{display:grid;grid-template-columns:repeat(3,1fr);gap:2cqw;width:86cqw}
+.ph3 div{padding:4cqh 1.6cqw;border-radius:1.4cqw;background:rgba(255,255,255,.05);border:1px solid rgba(214,168,78,.35);text-align:center}
+.ph3 small{font:800 min(1.1cqw,2cqh)/1 Manrope;letter-spacing:.2em;color:#d6a84e}
+.ph3 b{display:block;font:600 min(1.9cqw,3.3cqh)/1.25 Fraunces;margin-top:2cqh}
+.bars{display:flex;gap:2.4cqw;align-items:flex-end;height:46cqh;margin:4cqh auto 0;justify-content:center}
+.bars>div{display:flex;flex-direction:column;justify-content:flex-end;height:100%;width:12cqw}
+.bars .b{border-radius:1cqw 1cqw 0 0;background:linear-gradient(180deg,#ecc77a,#b88a32);display:flex;justify-content:center;padding-top:1.4cqh;font:700 min(2cqw,3.4cqh) Manrope;color:#1d1405;height:0;transition:height 1.1s cubic-bezier(.16,1,.3,1);overflow:hidden}
+.bars span{display:block;text-align:center;font-size:min(1.4cqw,2.4cqh);color:#c9d3c8;margin-top:1.2cqh;white-space:nowrap}
+.flow{display:flex;align-items:center;gap:1.6cqw;justify-content:center;margin-top:4cqh;flex-wrap:wrap}
+.flow div{padding:3cqh 2cqw;border-radius:1.2cqw;background:rgba(255,255,255,.06);border:1px solid rgba(246,239,226,.14);font:600 min(2cqw,3.4cqh)/1.2 Fraunces;min-width:16cqw}
+.flow i{font-style:normal;color:#d6a84e;font-size:min(3cqw,5cqh)}
+.flow div.on{background:rgba(214,168,78,.16);border-color:#d6a84e}
+.cover{width:min(24cqw,40cqh);aspect-ratio:3/4;margin:0 auto;border-radius:1.4cqw;background:linear-gradient(160deg,#f6efe2,#e3d5b8);color:#0b3227;padding:3cqh 2cqw;text-align:left;transform:rotate(-4deg);box-shadow:0 5cqh 9cqh -4cqh #000}
+.cover small{font:800 min(1cqw,1.7cqh)/1 Manrope;letter-spacing:.2em;color:#9a7428}
+.cover b{display:block;font:600 min(2.6cqw,4.4cqh)/1.05 Fraunces;margin-top:2cqh}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4cqw;width:86cqw;margin-top:3cqh}
+.grid4 img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:1cqw}
+</style>  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+</head>
+<body><div id="stage" aria-live="polite"></div><div id="bar"></div><div id="counter"></div>
+<script>
+const DECK = (function(){
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) document.documentElement.classList.add('reduced');
+  const stage = document.getElementById('stage');
+  const bar = document.getElementById('bar');
+  const counter = document.getElementById('counter');
+  let current = 0, SLIDES = [];
+
+  /* render one slide: CLEAR + REBUILD so its animations fire on mount */
+  function show(i){
+    if (!SLIDES.length) return;
+    current = Math.max(0, Math.min(SLIDES.length - 1, i));
+    const s = SLIDES[current];
+    const el = document.createElement('section');
+    el.className = 'slide';
+    el.innerHTML = (typeof s === 'string') ? s : (s.html || '');
+    stage.replaceChildren(el);                 // clears previous slide, mounts this one
+    if (s && typeof s.onMount === 'function') s.onMount(el, { reduced });  // optional per-slide hook
+    bar.style.width = (current / Math.max(1, SLIDES.length - 1) * 100) + '%';
+    counter.textContent = (current + 1) + ' / ' + SLIDES.length;
+  }
+  const next = () => show(current + 1);
+  const prev = () => show(current - 1);
+
+  /* nav: click / Space / arrows. One slide per input, never scroll. */
+  addEventListener('keydown', e => {
+    if (['ArrowRight',' ','Spacebar','PageDown'].includes(e.key)){ e.preventDefault(); next(); }
+    else if (['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+    else if (e.key === 'Home'){ show(0); }
+    else if (e.key === 'End'){ show(SLIDES.length - 1); }
+  });
+  addEventListener('click', e => { (e.clientX < innerWidth * 0.33 ? prev : next)(); });
+
+  /* load(slides): hand the engine an array of slides, then start.
+     Each slide is either a raw HTML string, or { html, onMount(el,{reduced}) }. */
+  function load(slides){ SLIDES = slides || []; show(0); }
+
+  return { load, show, next, prev, reduced };
+})();
+
+
+
+const IMG='../assets/img/';
+const D=(n,t,sub='')=>`<div class="c"><div class="n up">${n}</div><span class="eb up d1">${sub}</span><h1 class="up d2">${t}</h1></div>`;
+const T=(eb,h,s='')=>`<div class="c">${eb?`<span class="eb up">${eb}</span>`:''}<h2 class="up d1">${h}</h2>${s?`<p class="s up d2">${s}</p>`:''}</div>`;
+const H=(eb,h,s='')=>`<div class="c">${eb?`<span class="eb up">${eb}</span>`:''}<h1 class="up d1">${h}</h1>${s?`<p class="s up d2">${s}</p>`:''}</div>`;
+const P=(img,eb,h,s='')=>`<div class="split"><img class="up" src="${IMG+img}" alt=""><div class="t">${eb?`<span class="eb up d1">${eb}</span>`:''}<h2 class="up d2">${h}</h2>${s?`<p class="s up d3">${s}</p>`:''}</div></div>`;
+const B=(n,lab)=>`<div class="c"><div class="big up">${n}</div><p class="s up d1">${lab}</p></div>`;
+const MT=(eb,m,t)=>`<div class="c"><span class="eb up">${eb}</span><div class="mt"><div class="m up d1"><small>Myth</small><b>${m}</b></div><div class="t up d3"><small>Truth</small><b>${t}</b></div></div></div>`;
+const L=(eb,h,items,on=-1)=>`<div class="c"><span class="eb up">${eb}</span><h2 class="up d1">${h}</h2><ul class="li">${items.map((x,i)=>`<li class="up d${Math.min(i+2,5)} ${i===on?'on':''}"><b>${String(i+1).padStart(2,'0')}</b>${x}</li>`).join('')}</ul></div>`;
+const Q=(h,s='Type it in the chat')=>({html:`<div class="c"><span class="eb up">${s}</span><h1 class="up d1">${h}</h1></div>`,onMount(el){el.classList.add('q')}});
+const DV=(n,t,sub)=>({html:D(n,t,sub),onMount(el){el.classList.add('div')}});
+const P1='The Officeless Agency: sell a service you don’t deliver and sign your first client in 30 days';
+const P2='The 6-step hiring system that gets the work done in under an hour a day, so your 9-to-5 stays safe';
+const P3='The 3-ETF halal portfolio behind Omar’s $1.6M, and how to auto-invest your agency profit into it';
+const PIL=on=>`<div class="c"><span class="eb up">Tonight’s three secrets</span><div class="ph3">${[P1,P2,P3].map((p,i)=>`<div class="up d${i+1}" style="${on===i?'border-color:#ecc77a;background:rgba(214,168,78,.18)':''}"><small>SECRET 0${i+1}</small><b>${p}</b></div>`).join('')}</div></div>`;
+const BARS=(eb,h,data)=>({html:`<div class="c"><span class="eb up">${eb}</span><h2 class="up d1">${h}</h2><div class="bars">${data.map(d=>`<div><div class="b" data-h="${d[1]}">${d[2]}</div><span>${d[0]}</span></div>`).join('')}</div></div>`,
+ onMount(el,{reduced}){el.querySelectorAll('[data-h]').forEach((b,i)=>{const go=()=>b.style.height=b.dataset.h+'%';reduced?go():setTimeout(go,300+i*200)})}});
+const FLOW=(eb,h,steps,on=-1)=>`<div class="c"><span class="eb up">${eb}</span><h2 class="up d1">${h}</h2><div class="flow">${steps.map((s,i)=>(i?'<i class="up d'+Math.min(i+1,5)+'">→</i>':'')+`<div class="up d${Math.min(i+1,5)} ${i===on?'on':''}">${s}</div>`).join('')}</div></div>`;
+const COUNT=(eb,end,pre,suf,lab)=>({html:`<div class="c"><span class="eb up">${eb}</span><div class="big" data-n>0</div><p class="s up d2">${lab}</p></div>`,
+ onMount(el,{reduced}){const n=el.querySelector('[data-n]'),f=v=>pre+Math.round(v).toLocaleString()+suf;if(reduced){n.textContent=f(end);return}const t0=performance.now();(function k(t){const p=Math.min(1,(t-t0)/1300),e=1-Math.pow(1-p,3);n.textContent=f(end*e);if(p<1)requestAnimationFrame(k)})(t0)}});
+let STACK=[];const ST=(item)=>{STACK=STACK.concat([item]);const s=STACK.slice();return `<div class="c"><span class="eb up">The Unshakeable Method</span><h2 class="up d1">Here’s what you get</h2><ul class="li">${s.map((x,i)=>`<li class="${i===s.length-1?'on up d2':''}"><b>${String(i+1).padStart(2,'0')}</b>${x}</li>`).join('')}</ul></div>`};
+
+DECK.load([
+ /* 1 · HOOK */
+ H('Free live masterclass','How Muslim 9-to-5ers build a <em>$5k a month</em> halal agency, then invest it into freedom','With Omar Deryan'),
+ T('Quick quiz before we start','True or false: to earn halal money online, you need a skill to sell.'),
+ Q('True or false?','Drop your answer in the chat'),
+ H('','False.','I didn’t have a single skill when I started my first agency. I’ll show you exactly how tonight.'),
+ P('omar-portrait.jpg','Salam, I’m Omar','In 2017 I left a salaried job in Europe.','Five years later I’d made over $2M in profit from an agency I ran in under an hour a day.'),
+ /* 2 · PAIN */
+ DV('02','Let’s be honest about where you are','The real problem'),
+ T('','You go to work, you get paid, and somehow the month ends at zero again.'),
+ T('','You’ve watched the "make money online" videos. Half of them are trading, crypto or something you’d never ask your imam about.'),
+ T('','And the money you do save sits in a bank account, because you don’t know what’s halal to invest in.'),
+ L('Sound familiar?','The three walls most of us hit',['I don’t have a skill anyone would pay for','I don’t have the time, my job takes everything','I don’t know where to put money without riba']),
+ Q('Which one is you? 1, 2 or 3?'),
+ T('','None of that is your fault. Nobody showed you a model built for someone with a job, a family and a deen to protect.'),
+ /* 3 · TEASE */
+ DV('03','What you’ll walk away with','Tonight'),
+ {html:PIL(-1)},
+ T('Stay to the end','There’s a second gift at the end for everyone who stays.','It’s the exact outreach I’d send if I started again tomorrow. More on that later.'),
+ /* 4 · EXCITE */
+ DV('04','Picture this','A year from now'),
+ T('','It’s a Thursday. Your salary lands, and so does $5,000 from two agency clients you spoke to for 40 minutes this week.'),
+ T('','On the 1st, the profit moves into your halal portfolio on its own. You don’t think about it.'),
+ T('','And for the first time, you know the exact year you could leave your job if you wanted to.'),
+ /* 5 · SOCIAL PROOF */
+ DV('05','Why listen to me','Who I am'),
+ P('yt-uElWBy876ig.jpg','2017','I tried a few business models. Every one of them failed.','Then I paid for a mentor who was working remotely as a freelancer.'),
+ P('yt-roFAOFwfkrk.jpg','The turn','I didn’t have his skills, so I resold his service.','I found the clients. He did the work. That was my first agency.'),
+ COUNT('Five years later',2000000,'$','+','in profit, running it in under an hour a day'),
+ P('yt-pEPF7yuJq2Y.jpg','Then I put it to work','Halal ETFs, and five properties in three countries.','Today the portfolio is over $1.6M.'),
+ {html:`<div class="c"><span class="eb up">On the channel</span><h2 class="up d1">65,000 people learn this with me on YouTube</h2><div class="grid4">${['yt-6IeCiApc4pc.jpg','yt-pNsjNERhCWc.jpg','yt-bmPTzpFERmU.jpg','yt-j6pjgIuT6Ck.jpg'].map((i,k)=>`<img class="up d${k+2}" src="${IMG+i}">`).join('')}</div></div>`},
+ P('press-bi.png','Featured','Business Insider covered how the model works.',''),
+ T('{{SWAP: student proof}}','Students who’ve signed their first client while still employed','Drop 3 to 5 real student screenshots here.'),
+ /* 6 · PARADIGM */
+ DV('06','The one idea that changes everything','The shift'),
+ T('','Most people think financial freedom is an investing problem.'),
+ H('','It’s an <em>income</em> problem first.','You can’t invest your way out of a salary that ends at zero.'),
+ BARS('Same person, same salary','Years until your portfolio pays your salary',[['Salary only',96,'31 yrs'],['+ $2k / mo',55,'17 yrs'],['+ $5k / mo',30,'9 yrs']]),
+ FLOW('The Two-Engine Method','Build the income, then make it permanent',['Your salary','Officeless Agency','Halal portfolio','Freedom'],1),
+ L('So tonight we break three beliefs','Three things you’ve been told',['"I need a skill first"','"I don’t have the time"','"Investing halal is complicated"']),
+ Q('Does that make sense so far? Type YES'),
+ /* 7 · TRAINING · SECRET 1 */
+ {html:PIL(0)},
+ DV('01','The Officeless Agency','Secret one'),
+ MT('Belief one','You need a skill people will pay for.','You need clients. Freelancers already have the skill.'),
+ FLOW('How it works','You sit in the middle',['Client pays you $1,500','You manage the project','Freelancer paid $600'],1),
+ B('$900','what you keep from one client, every month they stay'),
+ L('Choosing the service','Pick one that businesses already buy monthly',['Short-form video editing','Website and landing pages','Ad creative and copy','Bookkeeping for small firms'],0),
+ T('The rule','Pick a service where the result is easy to see.','If the client can see it in a week, they keep paying.'),
+ L('Your first client','Where they actually come from',['People you already know who own a business','Local businesses with weak Instagram','Founders posting on LinkedIn about hiring'],0),
+ T('The outreach','One short message, ten times a day, five days a week.','That’s 200 conversations a month. You need one yes.'),
+ P('yt-vHP9GcGVokA.jpg','Milestone','Day 30: your first paying client.','Before you’ve hired anyone or quit anything.'),
+ Q('Could you send ten messages a day? Type YES'),
+ /* SECRET 2 */
+ {html:PIL(1)},
+ DV('02','The 6-step hiring system','Secret two'),
+ MT('Belief two','Running a business means quitting your job.','The work is done by people you hire. You manage, under an hour a day.'),
+ L('The 6 steps','How I hire freelancers who don’t ghost',['Write the job as a result, not a task','Post on two platforms, never one','Give every applicant the same paid test','Pick on the test, not the CV','Start with one project, then a retainer','Keep a backup for every role'],-1),
+ T('Why step 3 matters','A paid test shows you who delivers on time before a client ever sees their work.'),
+ FLOW('Your day','Where the hour goes',['15 min client messages','30 min review delivery','15 min outreach'],1),
+ COUNT('Add clients, not hours',5000,'$',' / mo','profit with five to six clients on the same hour a day'),
+ Q('Can you find one hour a day? Type 1 HOUR'),
+ /* SECRET 3 */
+ {html:PIL(2)},
+ DV('03','The 3-ETF halal portfolio','Secret three'),
+ MT('Belief three','Halal investing is complicated, so the money stays in the bank.','It’s three funds, screened for riba and haram sectors, bought every month.'),
+ L('The three ETFs','What’s in my portfolio',['A global Shariah-screened equity ETF','A US Shariah-screened equity ETF','Sukuk or gold for the steady part'],-1),
+ T('The screen','No interest-based banks, no alcohol, no gambling, no companies drowning in debt.','The ETF does the screening for you.'),
+ FLOW('The auto-invest','Set it once',['Agency profit lands','Auto-transfer on the 1st','Buys all three ETFs'],2),
+ COUNT('$5k a month, invested for 9 years',700000,'$','+','at a 7% average, before your salary ever stops'),
+ Q('Who’s going to set up the auto-invest this month? Type ME'),
+ /* 8 · COMMITMENT */
+ DV('08','Quick check-in','Before we move on'),
+ T('','Can you see how someone with no skill could get a client in 30 days?'),
+ T('','Can you see how freelancers keep it to an hour a day?'),
+ T('','And can you see where every dollar of profit goes after that?'),
+ Q('If you can see yourself doing this, type I’M IN'),
+ /* 9 · TRANSITION */
+ DV('09','Here’s the whole game','Recap'),
+ FLOW('The Two-Engine Method','Salary to freedom',['First client','$5k a month','Halal portfolio','Freedom date']),
+ T('The cost of waiting','Every year on salary only adds years to your freedom date.','The calculator showed you that.'),
+ L('From here you’ve got three paths','Which one is yours?',['Do nothing, and next year looks like this year','Do it alone, and spend a year working it out','Let us shortcut it with you'],2),
+ T('Heads up','In a second I’m going to show you how we can do this together.','If it’s not for you, no problem, stay for the gift at the end.'),
+ /* 10 · OFFER */
+ DV('10','The Unshakeable Method','The offer'),
+ H('The Unshakeable Method','Your first $5k a month in 90 days, and a halal portfolio it feeds.','Without quitting your job first.'),
+ {html:`<div class="c"><span class="eb up">90 days, three phases</span><div class="ph3">${[['DAYS 1 TO 30',P1],['DAYS 31 TO 60',P2],['DAYS 61 TO 90',P3]].map((p,i)=>`<div class="up d${i+1}"><small>${p[0]}</small><b>${p[1]}</b></div>`).join('')}</div></div>`},
+ ST('The 90-day curriculum, in the three phases you saw tonight'),
+ ST('A weekly 90-minute live call with me'),
+ ST('Your own assigned coach, one-to-one every two weeks'),
+ ST('Your agency offer, scripts and proposal, written with you'),
+ ST('The Freelancer Bench: my vetted freelancers, ready to deliver <em>(unfair advantage)</em>'),
+ ST('A 1:1 session to set up your broker, ETFs and auto-invest'),
+ /* 11 · PRICE */
+ DV('11','What is it worth?','Investment'),
+ T('','One client at $1,500 a month pays for it in a few months, and you keep the client.'),
+ T('','Doing it alone costs a year of trial and error, and a year more on salary.'),
+ T('The investment','It’s a serious investment, and we’ll go through it on a call so it fits your situation.','Payment plans are there if you need them.'),
+ /* 12 · BONUSES */
+ DV('12','And a gift for staying','Bonus'),
+ {html:`<div class="split"><div class="cover up"><small>Unshakeable Method</small><b>The First Client Outreach Pack</b><p style="font-size:min(1.3cqw,2.2cqh);margin-top:3cqh;color:#3d5a4f">10 messages · 3 follow-ups · 1 proposal</p></div><div class="t"><span class="eb up d1">Free for everyone here</span><h2 class="up d2">The exact messages I’d send if I started again tomorrow.</h2><p class="s up d3">It’s in the WhatsApp group right now.</p></div></div>`},
+ L('Members also get','Bonuses',['The call vault: every past call, searchable','The community, with people a few weeks ahead of you','The Halal screening checklist for any fund']),
+ /* 13 · RISK REVERSAL */
+ DV('13','You can’t lose here','Guarantee'),
+ H('Do the work guarantee','Do the work for 90 days. If you haven’t signed a client, we keep coaching you 1:1 until you do.'),
+ T('The call','The call costs nothing. If it’s not a fit, my team will tell you honestly.'),
+ /* 14 · URGENCY + CTA */
+ DV('14','Why now','Last thing'),
+ T('Real limit','15 places per cohort, because I review every member’s offer myself.'),
+ T('What happens next','Click the link below, answer four questions, and book a time with my team.','On the call we map your agency and your freedom date.'),
+ Q('Click the link and book your call','The link is in the chat'),
+ H('','You don’t need a skill. You need a plan, one hour a day, and someone who’s done both halves.','JazakAllah khair for staying. See you on the call.')
+]);
+
+</script></body></html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>The Halal Freedom Masterclass · Omar Deryan</title>
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<link rel="stylesheet" href="../assets/funnel.css">
+<style>
+  .hero{padding:96px 0 40px;text-align:center}
+  .hero h1{max-width:900px;margin:0 auto}
+  .hero h1 span{display:block}
+  .cd-wrap{margin:44px auto 0;max-width:620px}
+  .cd-when{font-weight:700;color:var(--text-2);font-size:15px;letter-spacing:.04em;margin-bottom:16px}
+  .cd-when b{color:var(--gold-2)}
+  .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .cd-unit{position:relative;padding:20px 8px 16px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--line)}
+  .cd-unit svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);pointer-events:none}
+  .cd-num{display:block;font:600 clamp(34px,6vw,52px)/1 var(--serif);color:var(--cream);font-variant-numeric:tabular-nums}
+  .cd-lab{display:block;margin-top:8px;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+  .hero-cta{margin-top:36px}
+  .gift{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;padding:40px 44px}
+  .gift p.solve{color:var(--text-2);margin:12px 0 18px}
+  .gift-tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#7ee2a8;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.25);padding:8px 14px;border-radius:999px}
+  .cover{transform:rotate(-5deg);transition:transform .6s cubic-bezier(.16,1,.3,1);justify-self:center;width:min(280px,100%)}
+  .cover:hover{transform:rotate(0)}
+  .cover-in{aspect-ratio:3/4;border-radius:14px;padding:22px 20px;background:linear-gradient(160deg,#f6efe2,#e8dcc4);color:#0b3227;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);display:flex;flex-direction:column}
+  .cover-in small{font:800 10px/1 var(--font);letter-spacing:.2em;text-transform:uppercase;color:#9a7428}
+  .cover-in b{font:600 27px/1.05 var(--serif);margin-top:12px}
+  .cover-in .rows{margin-top:auto;display:grid;gap:6px}
+  .cover-in .rows div{display:flex;justify-content:space-between;font-size:11.5px;padding:7px 9px;border-radius:7px;background:rgba(11,50,39,.07)}
+  .cover-in .rows div.on{background:#0b3227;color:#f6efe2}
+  .cover-in .rows div.on span:last-child{color:#ecc77a;font-weight:800}
+  /* modal */
+  .ov{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:rgba(3,16,12,.7);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .3s}
+  .ov.open{opacity:1;pointer-events:auto}
+  .modal{width:min(440px,100%);padding:36px 30px 30px;border-radius:22px;background:linear-gradient(180deg,#123f32,#0b3227);border:1px solid rgba(214,168,78,.3);box-shadow:0 40px 100px -30px #000;transform:scale(.95) translateY(10px);transition:transform .35s cubic-bezier(.16,1,.3,1);position:relative;text-align:center}
+  .ov.open .modal{transform:none}
+  .modal h3{font-size:28px} .modal p{color:var(--text-2);margin:8px 0 22px}
+  .x{position:absolute;right:14px;top:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;font-size:18px}
+  .fld{text-align:left;margin-bottom:12px} .fld label{display:block;font-size:12.5px;font-weight:700;color:var(--text-2);margin-bottom:6px}
+  .fld input{width:100%;padding:15px 16px;border-radius:12px;border:1px solid var(--line);background:rgba(0,0,0,.2);color:var(--text);font:500 16px var(--font);outline:none}
+  .fld input:focus{border-color:var(--gold)} .fld input.err{border-color:#e07a6a}
+  .errm{min-height:20px;color:#f0a090;font-size:13px;margin:4px 0 8px}
+  .modal .btn{width:100%}
+  @media (max-width:860px){.gift{grid-template-columns:1fr;padding:30px 24px;text-align:center}.hero{padding-top:64px}}
+  @media (max-width:420px){.countdown{gap:8px}.cd-lab{letter-spacing:.1em;font-size:10px}}
+</style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow reveal">Free live masterclass</span>
+      <h1 class="reveal"><span>How Muslim 9-to-5ers build a</span><span><em>$5k a month</em> halal agency,</span><span>then invest it into freedom</span></h1>
+      <p class="lead reveal">A free live training with Omar Deryan, who built $2M+ in agency profit on under an hour a day and invests it in a $1.6M halal portfolio.</p>
+      <div class="cd-wrap reveal">
+        <div class="cd-when">Tuesday 17 November · <b>7pm Dubai</b> · 3pm London</div>
+        <div class="countdown" data-target="2026-11-17T15:00:00Z">
+          <div class="cd-unit"><span class="cd-num" id="cdD">00</span><span class="cd-lab">Days</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cdH">00</span><span class="cd-lab">Hours</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cdM">00</span><span class="cd-lab">Mins</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cdS">00</span><span class="cd-lab">Secs</span></div>
+        </div>
+      </div>
+      <div class="hero-cta reveal"><a class="btn btn-primary" href="#" data-open>Save my seat →</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="reveal">Here's what you'll learn</h2></div>
+      <div class="pillars">
+        <article class="pillar card reveal">
+          <span class="pn">01</span>
+          <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg></div>
+          <h3>The Officeless Agency: sell a service you don't deliver and sign your first client in 30 days</h3>
+          <p>The offer, price and outreach Omar used. No skills of your own needed.</p>
+        </article>
+        <article class="pillar card reveal">
+          <span class="pn">02</span>
+          <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>The 6-step hiring system that gets the work done in under an hour a day, so your 9-to-5 stays safe</h3>
+          <p>Vetted freelancers deliver, you manage the client. No ghosting, no late nights.</p>
+        </article>
+        <article class="pillar card reveal">
+          <span class="pn">03</span>
+          <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M4 16l5-5 4 3 7-8"/><path d="M15 6h5v5"/></svg></div>
+          <h3>The 3-ETF halal portfolio behind Omar's $1.6M, and how to auto-invest your agency profit into it</h3>
+          <p>No interest, no haram stocks. Set up once, then left to compound.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="reveal">Meet your host</h2></div>
+      <div class="host card reveal">
+        <div class="host-photo"><img src="../assets/img/omar-portrait.jpg" alt="Omar Deryan"></div>
+        <div>
+          <h3 style="font-size:32px">Omar Deryan</h3>
+          <div class="host-role">Agency founder · halal investor</div>
+          <p>Omar left a salaried job in Europe in 2017. He didn't have a skill to sell, so he resold a freelancer's service, built it into an officeless agency and made over $2M in profit in five years on under an hour a day. Then he put it to work: halal ETFs and five properties across three countries. Everything on Tuesday comes from what's working for Omar and his students right now.</p>
+          <div class="stats">
+            <div class="stat"><div class="v">$2M+</div><div class="k">profit from his officeless agencies</div></div>
+            <div class="stat"><div class="v">$1.6M+</div><div class="k">invested in halal ETFs and real estate</div></div>
+            <div class="stat"><div class="v">5</div><div class="k">properties across 3 countries</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="gift card reveal">
+        <div>
+          <span class="eyebrow">Free when you register</span>
+          <h2>The Halal Freedom Number Calculator</h2>
+          <p class="lead" style="margin:14px 0 0">Find the exact year your halal portfolio can pay your salary for you.</p>
+          <p class="solve">Put in what you earn, what you save and what your agency adds. It shows the gap in years, and how much a $5k month closes it.</p>
+          <span class="gift-tag">● Delivered in the WhatsApp group when you register</span>
+        </div>
+        <div class="cover">
+          <div class="cover-in">
+            <small>Unshakeable Method</small>
+            <b>The Halal Freedom Number</b>
+            <div class="rows">
+              <div><span>Salary only</span><span>31 yrs</span></div>
+              <div><span>+ $2k / mo agency</span><span>17 yrs</span></div>
+              <div class="on"><span>+ $5k / mo agency</span><span>9 yrs</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow reveal">Proof</span><h2 class="reveal">What students are saying</h2></div>
+      <div class="proof-grid reveal">
+        <div class="shot">{{SWAP: student win 1}}</div><div class="shot">{{SWAP: student win 2}}</div><div class="shot">{{SWAP: student win 3}}</div><div class="shot">{{SWAP: student win 4}}</div>
+        <div class="shot">{{SWAP: student win 5}}</div><div class="shot">{{SWAP: student win 6}}</div><div class="shot">{{SWAP: student win 7}}</div><div class="shot">{{SWAP: student win 8}}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow reveal">Our students</span><h2 class="reveal">Hear from our students</h2></div>
+      <div class="vgrid">
+        <article class="reveal"><div class="vframe" style="background-image:url(../assets/img/yt-6IeCiApc4pc.jpg);filter:saturate(.6)"><span class="swap">{{SWAP: testimonial 1}}</span><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="vname">Student name</div><p class="vdesc">First client signed while still employed</p></article>
+        <article class="reveal"><div class="vframe" style="background-image:url(../assets/img/yt-pNsjNERhCWc.jpg);filter:saturate(.6)"><span class="swap">{{SWAP: testimonial 2}}</span><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><div class="vname">Student name</div><p class="vdesc">From salary only to a halal portfolio on autopilot</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section center" style="padding-top:10px"><a class="btn btn-primary" href="#" data-open>Save my seat →</a></section>
+</main>
+
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="mt">
+  <div class="modal">
+    <button class="x" id="x" aria-label="Close">×</button>
+    <h3 id="mt">Save your seat</h3>
+    <p>Tuesday 17 November, 7pm Dubai.</p>
+    <form id="f" novalidate>
+      <div class="fld"><label for="n">Full name</label><input id="n" autocomplete="name" placeholder="Your name"></div>
+      <div class="fld"><label for="e">Email</label><input id="e" type="email" autocomplete="email" placeholder="you@email.com"></div>
+      <p class="errm" id="er" role="alert"></p>
+      <button class="btn btn-primary" type="submit">Save my seat →</button>
+    </form>
+  </div>
+</div>
+
+<footer class="foot"><span class="brand"><span class="mk">U</span>Unshakeable Method</span></footer>
+<script src="../assets/funnel.js"></script>
+<script>
+(function(){var t=new Date(document.querySelector('.countdown').dataset.target);if(isNaN(t)||t<Date.now())t=new Date(Date.now()+3*864e5);
+function p(n){return(n<10?'0':'')+n}function k(){var d=Math.max(0,Math.floor((t-Date.now())/1e3));cdD.textContent=p(Math.floor(d/86400));d%=86400;cdH.textContent=p(Math.floor(d/3600));d%=3600;cdM.textContent=p(Math.floor(d/60));cdS.textContent=p(d%60)}k();setInterval(k,1e3)})();
+(function(){var o=document.getElementById('ov');function op(e){e.preventDefault();o.classList.add('open');setTimeout(function(){n.focus()},80)}function cl(){o.classList.remove('open')}
+document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',op)});x.onclick=cl;o.onclick=function(e){if(e.target===o)cl()};document.addEventListener('keydown',function(e){if(e.key==='Escape')cl()});
+f.onsubmit=function(e){e.preventDefault();n.classList.remove('err');document.getElementById('e').classList.remove('err');er.textContent='';
+if(!n.value.trim()){n.classList.add('err');er.textContent='Please enter your name.';return}
+var em=document.getElementById('e');if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())){em.classList.add('err');er.textContent='Please enter a valid email.';return}
+location.href='../thank-you/'}})();
+</script>
+</body>
+</html>
