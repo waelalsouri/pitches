@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Replay · Muslim Marketing Academy</title>
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<link rel="stylesheet" href="../assets/funnel.css">
+<style>
+  .rp-hero{text-align:center;padding:clamp(60px,9vw,100px) 0 10px}
+  .rp-hero h1{max-width:22ch;margin:0 auto}
+  .replay{max-width:920px;margin:42px auto 0;aspect-ratio:16/9;border-radius:20px;overflow:hidden;position:relative;border:1px solid var(--line);background:#000;box-shadow:0 40px 80px -40px #000}
+  .replay img{width:100%;height:100%;object-fit:cover;opacity:.8}
+  .replay .fplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:86px;height:86px;border-radius:50%;display:grid;place-items:center;color:var(--ink);background:linear-gradient(180deg,var(--gold-2),var(--gold));box-shadow:0 0 0 12px rgba(255,199,44,.18)}
+  .replay .fplay svg{width:30px;height:30px;margin-left:4px}
+  .replay .bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.2)}
+  .replay .bar i{display:block;width:0;height:100%;background:var(--gold)}
+  /* Typeform */
+  .tf{max-width:920px;margin:36px auto 0;border-radius:18px;overflow:hidden;background:#fff;color:#262627;font-family:"Helvetica Neue",Arial,sans-serif;box-shadow:0 40px 80px -40px #000;position:relative;min-height:440px}
+  .tf-prog{height:4px;background:#e9e9e9}.tf-prog i{display:block;height:100%;width:0;background:#262627;transition:width .5s var(--ease)}
+  .tf-body{padding:clamp(34px,6vw,64px) clamp(22px,7vw,80px) 90px}
+  .tf-q{display:none;animation:tfin .5s var(--ease)}.tf-q.on{display:block}
+  @keyframes tfin{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  .tf-n{font-size:15px;color:#0445af;margin-right:8px}
+  .tf-q h3{font-family:inherit;font-size:clamp(20px,2.6vw,26px);font-weight:400;color:#262627;line-height:1.35;letter-spacing:0}
+  .tf-q .hint{color:#6b6b6b;font-size:16px;margin:8px 0 22px}
+  .tf-opts{display:grid;gap:10px;max-width:420px}
+  .tf-opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;font:inherit;font-size:17px;color:#0445af;background:rgba(4,69,175,.06);border:1px solid rgba(4,69,175,.45);border-radius:6px;padding:9px 12px;cursor:pointer;transition:background .2s}
+  .tf-opt:hover{background:rgba(4,69,175,.14)}
+  .tf-opt.sel{background:rgba(4,69,175,.2);border-color:#0445af}
+  .tf-key{width:24px;height:24px;flex:none;display:grid;place-items:center;font-size:12px;font-weight:700;border:1px solid rgba(4,69,175,.5);border-radius:3px;background:#fff}
+  .tf-opt.sel .tf-key{background:#0445af;color:#fff}
+  .tf-in{width:100%;max-width:560px;font:inherit;font-size:24px;color:#0445af;border:0;border-bottom:1px solid rgba(4,69,175,.4);padding:8px 0;outline:none;background:transparent}
+  .tf-ok{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font:inherit;font-weight:700;font-size:18px;color:#fff;background:#0445af;border:0;border-radius:4px;padding:8px 16px;cursor:pointer}
+  .tf-ok small{font-weight:400;font-size:12px;color:#262627;margin-left:6px}
+  .tf-ok-wrap{display:flex;align-items:center;gap:10px}
+  .tf-ok-wrap span{font-size:12px;color:#6b6b6b;margin-top:22px}
+  .tf-brand{position:absolute;right:16px;bottom:14px;font-size:12px;font-weight:600;background:#262627;color:#fff;border-radius:4px;padding:6px 10px}
+  .tf-done{text-align:center;display:none;padding-top:40px}.tf-done.on{display:block;animation:tfin .5s var(--ease)}
+  .tf-done h3{font-family:inherit;font-weight:400;font-size:26px;color:#262627}
+  /* Calendly */
+  .cal{max-width:920px;margin:36px auto 0;background:#fff;color:#1a1a1a;border-radius:10px;overflow:hidden;display:grid;grid-template-columns:.8fr 1.2fr;font-family:"Helvetica Neue",Arial,sans-serif;box-shadow:0 40px 80px -40px #000}
+  .cal-left{padding:28px;border-right:1px solid #e6e6e6}
+  .cal-left img{width:56px;height:56px;border-radius:50%;object-fit:cover;margin-bottom:14px}
+  .cal-left .who{color:#6b6b6b;font-weight:600;font-size:15px}
+  .cal-left h3{font-family:inherit;font-size:24px;font-weight:700;color:#1a1a1a;margin:4px 0 16px;letter-spacing:0}
+  .cal-left p{margin:6px 0;color:#4d5055;font-size:15px}
+  .cal-right{padding:28px}
+  .cal-right h4{margin:0 0 16px;font-size:18px}
+  .cal-mon{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-weight:600}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center;font-size:14px}
+  .cal-grid .dow{font-size:11px;color:#6b6b6b;font-weight:600}
+  .cal-d{aspect-ratio:1;display:grid;place-items:center;border-radius:50%;color:#b5b5b5}
+  .cal-d.av{color:#006bff;background:#e8f1ff;font-weight:700;cursor:pointer;border:0;font:inherit;font-weight:700}
+  .cal-d.av.sel{background:#006bff;color:#fff}
+  .cal-times{display:none;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}.cal-times.on{display:grid}
+  .cal-t{font:inherit;font-weight:700;font-size:15px;color:#006bff;background:#fff;border:1px solid #9ac4ff;border-radius:6px;padding:11px 0;cursor:pointer}
+  .cal-t.sel{background:#4d5055;color:#fff;border-color:#4d5055}
+  .cal-confirm{display:none;margin-top:16px;width:100%;font:inherit;font-weight:700;color:#fff;background:#006bff;border:0;border-radius:6px;padding:13px;cursor:pointer}.cal-confirm.on{display:block}
+  .cal-booked{display:none;padding:40px 28px;text-align:center;grid-column:1/-1}.cal-booked.on{display:block}
+  .cal-booked h3{font-family:inherit;color:#1a1a1a;font-size:24px;letter-spacing:0}
+  .cal-booked p{color:#4d5055}
+  @media (max-width:760px){.cal{grid-template-columns:1fr}.cal-left{border-right:0;border-bottom:1px solid #e6e6e6}}
+</style>
+</head>
+<body>
+<main>
+  <section class="rp-hero">
+    <div class="wrap">
+      <span class="eyebrow reveal">Replay · comes down soon</span>
+      <h1 class="reveal">How Muslims Stuck in a <span style="white-space:nowrap">9-5</span> Are Building <em>$5k a Month</em> Halal Agencies</h1>
+      <p class="lead reveal">The replay comes down soon. Once it's gone, it's gone. Watch it now.</p>
+      <!-- {{SWAP: replay video}} -->
+      <div class="replay reveal"><img src="../assets/img/wide-smile.jpg" alt="Training replay"><span class="fplay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><div class="bar"><i></i></div></div>
+
+      <div class="tf reveal" id="tf" aria-label="Application form">
+        <div class="tf-prog"><i id="tfProg"></i></div>
+        <div class="tf-body">
+          <div class="tf-q on" data-q>
+            <h3><span class="tf-n">1→</span>Salaam. What's your situation right now?*</h3>
+            <p class="hint">My team reads every application before the call.</p>
+            <div class="tf-opts">
+              <button class="tf-opt" type="button"><span class="tf-key">A</span>I work a <span style="white-space:nowrap">9-5</span></button>
+              <button class="tf-opt" type="button"><span class="tf-key">B</span>I'm self-employed</button>
+              <button class="tf-opt" type="button"><span class="tf-key">C</span>I'm a student</button>
+              <button class="tf-opt" type="button"><span class="tf-key">D</span>I already run a small agency</button>
+            </div>
+          </div>
+          <div class="tf-q" data-q>
+            <h3><span class="tf-n">2→</span>How many hours a week can you give this for the next 90 days?*</h3>
+            <div class="tf-opts" style="margin-top:22px">
+              <button class="tf-opt" type="button"><span class="tf-key">A</span>Less than 3 hours</button>
+              <button class="tf-opt" type="button"><span class="tf-key">B</span>3 to 5 hours</button>
+              <button class="tf-opt" type="button"><span class="tf-key">C</span>5 to 10 hours</button>
+              <button class="tf-opt" type="button"><span class="tf-key">D</span>10+ hours</button>
+            </div>
+          </div>
+          <div class="tf-q" data-q>
+            <h3><span class="tf-n">3→</span>What would you want your agency earning a month, 6 months from now?*</h3>
+            <div class="tf-opts" style="margin-top:22px">
+              <button class="tf-opt" type="button"><span class="tf-key">A</span>$1k to $3k</button>
+              <button class="tf-opt" type="button"><span class="tf-key">B</span>$3k to $5k</button>
+              <button class="tf-opt" type="button"><span class="tf-key">C</span>$5k to $10k</button>
+              <button class="tf-opt" type="button"><span class="tf-key">D</span>$10k+</button>
+            </div>
+          </div>
+          <div class="tf-q" data-q>
+            <h3><span class="tf-n">4→</span>If you're accepted, are you in a position to invest in yourself to get there?*</h3>
+            <div class="tf-opts" style="margin-top:22px">
+              <button class="tf-opt" type="button"><span class="tf-key">A</span>Yes, I've got the funds</button>
+              <button class="tf-opt" type="button"><span class="tf-key">B</span>Yes, with a bit of time to arrange it</button>
+              <button class="tf-opt" type="button"><span class="tf-key">C</span>Not right now</button>
+            </div>
+          </div>
+          <div class="tf-q" data-q data-text>
+            <h3><span class="tf-n">5→</span>Why is now the right time for you?*</h3>
+            <p class="hint">One or two lines is plenty.</p>
+            <input class="tf-in" type="text" placeholder="Type your answer here..." aria-label="Why now">
+            <div class="tf-ok-wrap"><button class="tf-ok" type="button">Submit</button><span>press <b>Enter ↵</b></span></div>
+          </div>
+          <div class="tf-done" id="tfDone"><h3>Thanks. One last step: pick a time below.</h3></div>
+        </div>
+        <span class="tf-brand">Typeform</span>
+      </div>
+
+      <!-- gated: hidden until the Typeform is complete -->
+      <div class="cal" id="cal" hidden>
+        <div class="cal-left">
+          <img src="../assets/img/avatar.jpg" alt="">
+          <div class="who">Muslim Marketing Academy</div>
+          <h3>Strategy Call</h3>
+          <p>◷ 30 min</p>
+          <p>▣ Web conferencing details on confirmation</p>
+          <p style="margin-top:14px">A call with my team to map your first 90 days.</p>
+        </div>
+        <div class="cal-right" id="calRight">
+          <h4>Select a Date &amp; Time</h4>
+          <div class="cal-mon"><span>‹</span><span id="calMon">November 2026</span><span>›</span></div>
+          <div class="cal-grid" id="calGrid"></div>
+          <div class="cal-times" id="calTimes"></div>
+          <button class="cal-confirm" id="calConfirm" type="button">Confirm</button>
+        </div>
+        <div class="cal-booked" id="calBooked"><h3>You're booked ✓</h3><p id="calWhen"></p><p>A calendar invite is on its way. My team will see you there.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">The model</span><h2>See how I do it</h2></div>
+      <div class="vgrid vgrid--wide">
+        <article class="vcard reveal"><div class="vframe vframe--wide"><iframe src="https://www.youtube-nocookie.com/embed/AfwlrzZZ8x0" title="The Halal Agency Niche That Made Me $532,305" loading="lazy" allowfullscreen></iframe></div><div class="vname">The niche that paid $532,305</div><p class="vdesc">The exact niche, and why it works for Muslims.</p></article>
+        <article class="vcard reveal"><div class="vframe vframe--wide"><iframe src="https://www.youtube-nocookie.com/embed/QnK05lcfbJU" title="I Made $42,124 With This Halal Online Business" loading="lazy" allowfullscreen></iframe></div><div class="vname">$42,124 with no experience</div><p class="vdesc">The business model, start to finish.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">Proof</span><h2>Straight from my Stripe</h2></div>
+      <div class="proof-grid">
+        <div class="shot reveal"><img src="../assets/img/proof-1.jpg" alt="Payout $532,305" loading="lazy"></div>
+        <div class="shot reveal"><img src="../assets/img/proof-2.jpg" alt="Stripe payments" loading="lazy"></div>
+        <div class="shot reveal"><img src="../assets/img/proof-3.jpg" alt="Paid invoices" loading="lazy"></div>
+        <div class="shot reveal"><img src="../assets/img/proof-4.jpg" alt="Stripe payment of $4,000" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="foot"><span class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="6" width="12" height="12"/><rect x="6" y="6" width="12" height="12" transform="rotate(45 12 12)"/><circle cx="12" cy="12" r="2.4"/></svg>Muslim Marketing Academy</span></footer>
+<script src="../assets/funnel.js"></script>
+<script>
+(function(){
+  var qs=[].slice.call(document.querySelectorAll("[data-q]")),i=0,prog=document.getElementById("tfProg");
+  function go(n){qs[i].classList.remove("on");i=n;prog.style.width=(i/qs.length*100)+"%";
+    if(i>=qs.length){document.getElementById("tfDone").classList.add("on");prog.style.width="100%";
+      var c=document.getElementById("cal");setTimeout(function(){c.hidden=false;c.scrollIntoView({behavior:"smooth",block:"start"});},900);return;}
+    qs[i].classList.add("on");var inp=qs[i].querySelector("input");if(inp)inp.focus();}
+  qs.forEach(function(q,qi){
+    q.querySelectorAll(".tf-opt").forEach(function(b){b.addEventListener("click",function(){
+      q.querySelectorAll(".tf-opt").forEach(function(x){x.classList.remove("sel")});b.classList.add("sel");setTimeout(function(){go(qi+1)},420);});});
+    var ok=q.querySelector(".tf-ok"),inp=q.querySelector("input");
+    function sub(){if(inp.value.trim().length<2){inp.style.borderColor="#c0392b";return;}go(qi+1);}
+    if(ok){ok.addEventListener("click",sub);inp.addEventListener("keydown",function(e){if(e.key==="Enter")sub();});}
+  });
+  document.addEventListener("keydown",function(e){
+    if(i>=qs.length||!qs[i])return;var k=e.key.toUpperCase();if(k.length!==1||k<"A"||k>"D")return;
+    if(document.activeElement&&document.activeElement.tagName==="INPUT")return;
+    var o=[].slice.call(qs[i].querySelectorAll(".tf-key")).filter(function(x){return x.textContent===k})[0];if(o)o.parentNode.click();});
+
+  // Calendly mock (Nov 2026 starts on a Sunday)
+  var g=document.getElementById("calGrid"),times=document.getElementById("calTimes"),conf=document.getElementById("calConfirm"),day=null,time=null;
+  "SUN MON TUE WED THU FRI SAT".split(" ").forEach(function(d){g.insertAdjacentHTML("beforeend",'<span class="dow">'+d+'</span>')});
+  for(var d=1;d<=30;d++){var dow=(d-1)%7,av=d>=16&&dow>0&&dow<6;
+    g.insertAdjacentHTML("beforeend",av?'<button class="cal-d av" type="button" data-d="'+d+'">'+d+'</button>':'<span class="cal-d">'+d+'</span>');}
+  g.addEventListener("click",function(e){var b=e.target.closest(".av");if(!b)return;
+    g.querySelectorAll(".av").forEach(function(x){x.classList.remove("sel")});b.classList.add("sel");day=b.dataset.d;
+    times.innerHTML=["9:00am","11:30am","2:00pm","4:30pm","6:00pm","7:30pm"].map(function(t){return '<button class="cal-t" type="button">'+t+'</button>'}).join("");
+    times.classList.add("on");conf.classList.remove("on");});
+  times.addEventListener("click",function(e){var b=e.target.closest(".cal-t");if(!b)return;
+    times.querySelectorAll(".cal-t").forEach(function(x){x.classList.remove("sel")});b.classList.add("sel");time=b.textContent;conf.classList.add("on");});
+  conf.addEventListener("click",function(){document.getElementById("calRight").style.display="none";document.querySelector(".cal-left").style.display="none";
+    document.getElementById("calWhen").textContent=time+", "+day+" November 2026";document.getElementById("calBooked").classList.add("on");});
+})();
+</script>
+</body>
+</html>
